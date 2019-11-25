@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-09-29T11:30:00Z" product-name="medialis">
+		<header/>
+		<body>
+			<trans-unit id="palette.access">
+                <source>Access</source>
+            </trans-unit>
+			<trans-unit id="default">
+				<source>Default</source>
+			</trans-unit>
+			<trans-unit id="content">
+				<source>Full Width (Without Container)</source>
+			</trans-unit>
+			<trans-unit id="footer">
+				<source>Footer (is inherited)</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

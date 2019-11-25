@@ -1,0 +1,89 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<f:layout name="General" />
+<!--
+	=====================
+		Templates/News/List.html
+-->
+<f:section name="content">	
+	<f:if condition="{news}">
+		<f:then>
+			<f:if condition="{settings.templateLayout} == 1">
+				<f:then>
+					<section class="news-section bg-light-blue">
+				        <div class="img-text-teaser-wrap">
+				        	<div id="cover-spin"></div>			        	
+				        	<input type="hidden" name="perPage" id="perPage" value="{settings.list.paginate.itemsPerPage}">
+						<input type="hidden" name="totNews" id="totNews" value="<f:count>{news}</f:count>">
+				            <div class="row">
+					            <f:if condition="{settings.hidePagination}">
+									<f:then>
+										<f:for each="{news}" as="newsItem" iteration="iterator">
+											<f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+										</f:for>
+									</f:then>
+									<f:else>
+										<n:widget.paginate objects="{news}" as="paginatedNews" configuration="{settings.list.paginate}" initial="{offset:settings.offset,limit:settings.limit,recordId:contentObjectData.uid}">
+											<f:for each="{paginatedNews}" as="newsItem" iteration="iterator">
+												<f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+											</f:for>
+										</n:widget.paginate>
+									</f:else>
+								</f:if>
+							</div>
+							<f:if condition="{settings.list.paginate.maximumNumberOfLinks} > 1">
+					            <div class="button-wrap">
+					            	<f:link.typolink parameter="{settings.listPid}" class="btn news-load-more"><f:translate key="more" extensionName="ns_theme_heiber" /></f:link.typolink>
+					            </div>							
+					        </f:if>
+				        </div>
+					</section>
+			    </f:then>
+			    <f:else>
+					<section class="img-text-teaser-section bg-secondary-blue">
+						<f:if condition="{contentObjectData.header}">   
+					        <div class="container">
+					            <div class="row">
+					                <div class="offset-xl-1 col-xl-10">
+					                    <h2>{contentObjectData.header}</h2>
+					                </div>
+					            </div>
+					        </div>
+					    </f:if>
+				        <div class="img-text-teaser-wrap">
+				            <div class="row">
+					            <f:if condition="{settings.hidePagination}">
+									<f:then>
+										<f:for each="{news}" as="newsItem" iteration="iterator">
+											<f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+										</f:for>
+									</f:then>
+									<f:else>
+										<n:widget.paginate objects="{news}" as="paginatedNews" configuration="{settings.list.paginate}" initial="{offset:settings.offset,limit:settings.limit,recordId:contentObjectData.uid}">
+											<f:for each="{paginatedNews}" as="newsItem" iteration="iterator">
+												<f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+											</f:for>
+										</n:widget.paginate>
+									</f:else>
+								</f:if>
+							</div>   
+
+							<f:if condition="{settings.list.paginate.maximumNumberOfLinks} > 1">
+					            <div class="button-wrap">
+					            	<f:link.typolink parameter="{settings.listPid}" class="btn"><f:translate key="more" extensionName="ns_theme_heiber" /></f:link.typolink>
+					            </div>								
+							</f:if>
+				        </div>
+				    </section>
+				</f:else>
+			</f:if>
+		</f:then>
+		<f:else>
+			<div class="no-news-found">
+				<f:translate key="list_nonewsfound" />
+			</div>
+		</f:else>
+	</f:if>
+</f:section>
+</html>

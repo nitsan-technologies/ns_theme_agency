@@ -1,0 +1,30 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+   <div class="row">
+      <div class="col-lg-12">
+        <ul class="timeline">
+          <f:for each="{content.gallery}" as="item" iteration="i">
+              <li class="{f:if(condition:'{i.isEven}',then:'timeline-inverted')}">
+                <div class="timeline-image">
+                  <f:if condition="{item.image}"><f:image src="{item.image}" class="rounded-circle img-fluid" alt="image" width="156c" height="156c" /></f:if>
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <f:if condition="{item.title}"><h4>{item.title}</h4></f:if>
+                    <f:if condition="{item.subtitle}"><h4 class="subheading">{item.subtitle}</h4></f:if>
+                  </div>
+                  <div class="timeline-body">
+                    <f:format.html>{item.text}</f:format.html>
+                  </div>
+                </div>
+              </li>
+          </f:for>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <f:format.html>{content.text}</f:format.html>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+   
+</html>

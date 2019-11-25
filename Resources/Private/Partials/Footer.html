@@ -1,0 +1,38 @@
+<!-- Footer -->
+<footer>
+    <div class="container">
+		<div class="row">
+		    <div class="col-md-4">
+		      	<span class="copyright"><f:cObject typoscriptObjectPath="lib.copyright"/></span>
+		    </div>
+		    <div class="col-md-4">
+				<ul class="list-inline social-buttons">
+					<f:if condition="{settings.twitter}">
+					    <li class="list-inline-item">
+							<f:link.typolink parameter="{settings.twitter}" target="_blank">
+								<i class="fab fa-twitter"></i>
+							</f:link.typolink>
+					    </li>
+					</f:if>
+					<f:if condition="{settings.facebook}">
+					    <li class="list-inline-item">
+							<f:link.typolink parameter="{settings.facebook}" target="_blank">
+								<i class="fab fa-facebook-f"></i>
+							</f:link.typolink>
+					    </li>
+					</f:if>
+					<f:if condition="{settings.linkedin}">
+					    <li class="list-inline-item">
+							<f:link.typolink parameter="{settings.linkedin}" target="_blank">
+								<i class="fab fa-linkedin-in"></i>
+							</f:link.typolink>
+					    </li>
+					</f:if>
+				</ul>
+		    </div>
+		    <div class="col-md-4">
+				<f:cObject typoscriptObjectPath="menu.footermenu" />
+		    </div>
+		</div>
+    </div>
+</footer>
