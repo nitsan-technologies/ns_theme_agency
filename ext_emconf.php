@@ -1,9 +1,4 @@
 <?php
-// TYPO3 Security Check
-if (!defined('TYPO3_MODE')) {
-	die('Access denied.');
-}
-
 // Provide detailed information and depenencies of EXT:ns_theme_agency
 $EM_CONF[$_EXTKEY] = array(
 	'title' => '[NITSAN] Agency TYPO3 Theme',
