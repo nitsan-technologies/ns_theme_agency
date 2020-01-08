@@ -1,1 +1,0 @@
-jQuery('.container.bg-light').parent('section').addClass('bg-light');
