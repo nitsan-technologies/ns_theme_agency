@@ -1,0 +1,32 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>
+                        Settings
+                    </sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <check>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:grid.bgcheck</label>
+                            <config>
+                                <type>check</type>
+                            </config>
+                        </TCEforms>
+                    </check>
+                    <section>
+                        <TCEforms>
+                            <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:grid.widthcheck</label>
+                            <config>
+                                <type>check</type>
+                            </config>
+                        </TCEforms>
+                    </section>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

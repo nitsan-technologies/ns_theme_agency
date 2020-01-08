@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+<figure class="image">
+	<f:if condition="{file.link}">
+		<f:then>
+			<f:if condition="{data.layout}=='2'">
+				<f:then>
+					<f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings}" />
+					<a data-fancybox href="{f:uri.typolink(parameter:'{file.link}')}">
+			            <div class="play-btn">
+			                <img src="fileadmin/ns_theme_heiber/images/icons/play.svg" alt="play icon image">
+			            </div>
+			        </a>        
+				</f:then>
+				<f:else>
+					<f:link.typolink parameter="{file.link}" title="{file.title}">
+						<f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings}" />
+					</f:link.typolink>
+				</f:else>
+			</f:if>
+		</f:then>
+		<f:else>
+			<f:if condition="{data.image_zoom}">
+				<f:then>
+					<a href="{f:uri.image(image:file)}" data-fancybox="images">
+						<f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings}" />
+					</a>
+				</f:then>
+				<f:else>
+					<f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings}" />
+				</f:else>
+			</f:if>
+		</f:else>
+	</f:if>
+	<f:if condition="{file.description}">
+		<figcaption class="image-caption">
+			{file.description}
+		</figcaption>
+	</f:if>
+</figure>
+</html>

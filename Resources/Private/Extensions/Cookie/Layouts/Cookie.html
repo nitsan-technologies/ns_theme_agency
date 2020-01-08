@@ -1,0 +1,38 @@
+<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+<script type="text/javascript" data-ignore="1">
+    window.cookieconsent_options = {
+        js:'typo3conf/ext/ns_theme_heiber/Resources/Public/Custom/cookieconsent.min.js?v=3.1.1',
+        css:'<f:uri.resource absolute="1" path="css/cookieconsent.min.css?v=3.1.1" extensionName="dp_cookieconsent" />',
+        dpCSS:'<f:uri.resource absolute="1" path="css/cookie.min.css" extensionName="dp_cookieconsent" />',
+        content: {
+            message:'<f:translate key="cookietext" extensionName="ns_theme_heiber" /> <f:link.typolink parameter="{settings.url}"><f:translate key="cookiemore" extensionName="ns_theme_heiber" /></f:link.typolink><f:translate key="cookieafter" extensionName="ns_theme_heiber" />',
+            dismiss:'<f:translate key="cookiebtn" extensionName="ns_theme_heiber" />',
+            allow:'<f:translate key="cookiebtn" extensionName="ns_theme_heiber" />',
+            deny: '<f:translate key="deny" extensionName="dp_cookieconsent" />',
+            link:'',
+            href:'',
+            policy: '<f:translate key="policy" extensionName="dp_cookieconsent" />',
+
+            dpRequire: '<f:translate key="dpRequire" extensionName="dp_cookieconsent" />',
+            dpStatistik: '<f:translate key="dpStatistik" extensionName="dp_cookieconsent" />',
+            dpMarketing: '<f:translate key="dpMarketing" extensionName="dp_cookieconsent" />'
+        },
+        layout: '<f:format.raw>{settings.layout}</f:format.raw>',
+        theme: '<f:format.raw>{settings.theme}</f:format.raw>',
+        position: '<f:format.raw>{settings.position}</f:format.raw>',
+        type: '<f:format.raw>{settings.type}</f:format.raw>',
+        revokable: '<f:format.raw>{settings.revokable}</f:format.raw>',
+        dismissOnScroll: parseInt('<f:format.raw>{settings.dismissOnScroll}</f:format.raw>')||false,
+        palette: {
+            popup: {
+                background: '<f:format.raw>{settings.barBg}</f:format.raw>',
+                text: '<f:format.raw>{settings.barColor}</f:format.raw>'
+            },
+            button: {
+                background: '<f:format.raw>{settings.btnBg}</f:format.raw>',
+                text: '<f:format.raw>{settings.btnColor}</f:format.raw>',
+            }
+        }
+    };
+</script>
+<script type="text/javascript" data-ignore="1" defer src="{f:uri.resource(extensionName: 'dp_cookieconsent', path:'JavaScript/cookie.min.js', absolute: 1)}?v=9.5.6"></script>

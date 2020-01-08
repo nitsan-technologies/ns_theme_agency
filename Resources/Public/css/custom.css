@@ -1,0 +1,122 @@
+/****************************************************************************
+Custom Styles
+ ***************************************************************************/
+
+footer .quicklinks a{
+    color: #fed136;
+}
+.timeline-body p{
+    color:#6c757d;
+}
+.fa-stack{
+    width: 2em;     
+}
+.fa-stack .fa-inverse{
+    font-size: 0.9em;
+}
+footer .quicklinks a:hover{
+    text-decoration: underline !important;
+}
+footer .quicklinks a:hover{
+    text-decoration: none;
+    color: #fed136;
+}
+.team-member img{
+    border: 7px solid rgba(0,0,0,.1);
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover img{
+    width: 100% !important;
+}
+#portfolio{
+    padding:0;
+}
+.error.help-block{
+    position: absolute;
+    color:#dc3545;
+    font-weight: 600;
+}
+.highed p{
+    color:#6c757d!important
+}
+.content #mainNav{
+    background-color: #212529;
+}
+.content nav.fixed-top+ section{
+    padding-top: 150px;
+    min-height: calc(100vh - 110px);
+}
+.timeline-image p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 18px;
+    line-height: 26px;
+    width: 100%;
+    font-weight: 700;
+font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+}
+@media (min-width: 1200px){
+    #portfolio .portfolio-item .portfolio-link{
+        max-height: 263px;
+        overflow: hidden;
+    }
+}
+@media (min-width: 992px){
+    #portfolio .portfolio-item .portfolio-link{
+        max-height: 217px;
+        overflow: hidden;
+    }
+}
+@media (min-width: 768px){
+    #portfolio .portfolio-item .portfolio-link{
+        max-height: 157px;
+        overflow: hidden;
+    }
+    section,.portfolio {
+        padding: 80px 0;
+    }
+.timeline>li .timeline-image{
+    width: 130px;
+    height: 130px;
+    margin-left: -65px;
+}
+
+}
+@media(max-width: 767px){
+    .timeline>li .timeline-image{
+        border-width: 4px;
+        width: 100px;
+        height: 100px;
+    }
+    .timeline:before{
+        left:54px;
+    }
+    .timeline>li .timeline-panel,.timeline>li.timeline-inverted>.timeline-panel{
+        padding: 0 0 0 110px;
+    }
+    .error.help-block{
+  font-size: 15px;
+}
+}
+@media (min-width:565px){
+    #portfolio .portfolio-item .portfolio-link{
+        max-height: 180px;
+        overflow: hidden;
+    }
+}
+@media (max-width:992px){
+    section,.portfolio{
+        padding:50px 0;
+    }
+    section h3.section-subheading{
+        margin-bottom: 40px;
+    }
+   .content nav.fixed-top+ section{
+    padding-top: 100px;
+}
+.timeline-image p{
+    font-size: 14px;
+    line-height: 17px;
+}
+}

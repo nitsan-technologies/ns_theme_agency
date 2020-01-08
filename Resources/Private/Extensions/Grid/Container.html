@@ -1,0 +1,15 @@
+<f:if condition="{data.flexform_section}">
+	<f:then>
+		<section>
+			<div class="container {f:if(condition:'{data.flexform_check}',then:'bg-light')}">           
+		    <f:format.raw>{data.tx_gridelements_view_column_1}</f:format.raw> 
+		</div>
+		</section>
+	</f:then>
+	<f:else>
+		<div class="container {f:if(condition:'{data.flexform_check}',then:'bg-light')}">           
+		    <f:format.raw>{data.tx_gridelements_view_column_1}</f:format.raw> 
+		</div>
+	</f:else>
+	
+</f:if>

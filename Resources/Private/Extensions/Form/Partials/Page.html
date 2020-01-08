@@ -1,0 +1,16 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+<formvh:renderRenderable renderable="{page}">	
+	<div class="col-md-6">	
+		<f:for each="{page.elements}" as="element">
+			<f:if condition="{element.type}=='Textarea'">
+				</div>
+				<div class="col-md-6">
+			</f:if>
+			<div class="form-group">				
+				<f:render partial="{element.templateName}" arguments="{element: element}" />			
+			</div>
+		</f:for>
+	</div>
+		<div class="clearfix"></div>
+</formvh:renderRenderable>
+</html>
