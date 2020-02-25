@@ -2,13 +2,15 @@
 ns_theme_agency {
 	website {
 		settings {
-			#cat = ns_theme_agency/website/settings/01; type=string; label=Twitter Link
+			#cat = ns_theme_agency/website/settings/01; type=string; label=Logo Image Path
+			logoImage = 
+			#cat = ns_theme_agency/website/settings/02; type=string; label=Twitter Link
 			twitter = 
-			#cat = ns_theme_agency/website/settings/02; type=string; label=Facebook Link
+			#cat = ns_theme_agency/website/settings/03; type=string; label=Facebook Link
 			facebook = 
-			#cat = ns_theme_agency/website/settings/03; type=string; label=LinkedIn Link
+			#cat = ns_theme_agency/website/settings/04; type=string; label=LinkedIn Link
 			linkedin = 
-			#cat = ns_theme_agency/website/settings/04; type=string; label=Google Analytics Id
+			#cat = ns_theme_agency/website/settings/05; type=string; label=Google Analytics Id
             googleanalytics =
 		}
 		paths {

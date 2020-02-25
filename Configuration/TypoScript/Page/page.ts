@@ -3,9 +3,11 @@ plugin {
     ns_theme_agency {
         settings {
            logo = {$ns_basetheme.website.settings.logo}
+           rootpage = {$ns_basetheme.website.settings.rootpage}
            facebook = {$ns_theme_agency.website.settings.facebook}
            twitter = {$ns_theme_agency.website.settings.twitter}
            linkedin = {$ns_theme_agency.website.settings.linkedin}
+           logoImage = {$ns_theme_agency.website.settings.logoImage}
         }
     }
 }
