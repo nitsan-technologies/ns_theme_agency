@@ -24,7 +24,8 @@
   "license": "MIT",
   "require": {
     "typo3/cms-core": ">=8.0.0",
-    "nitsan/ns-basetheme": ">=1.0.0"
+    "nitsan/ns-basetheme": ">=1.0.0",
+    "gridelementsteam/gridelements": ">=8.0.0"
   },
   "replace": {
       "nitsan/ns-theme-agency": "self.version"
