@@ -1,6 +1,7 @@
 # Let's define some constants for global configuration
 ns_basetheme.website.settings.logo_width >
 ns_basetheme.website.settings.logo_height >
+ns_basetheme.website.settings.logo_text >
 ns_theme_agency {
 	website {
 		settings {
