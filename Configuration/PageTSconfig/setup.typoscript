@@ -1,0 +1,5 @@
+# Include the BackendLayouts
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_agency/Configuration/PageTSconfig/BackendLayouts" extensions="typoscript">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_agency/Configuration/PageTSconfig/GridElements" extensions="typoscript">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_agency/Configuration/PageTSconfig/TceForm" extensions="typoscript">
+

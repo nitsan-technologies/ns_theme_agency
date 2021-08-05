@@ -5,7 +5,7 @@ tt_content.gridelements_pi1.20.10.setup {
     nsBase1Col {
         cObject = FLUIDTEMPLATE
         cObject {
-            file = typo3conf/ext/ns_theme_agency/Resources/Private/Extensions/Grid/Container.html
+            file = EXT:ns_theme_agency/Resources/Private/Extensions/Grid/Container.html
         }
     }
     # Three column grid container
@@ -13,7 +13,7 @@ tt_content.gridelements_pi1.20.10.setup {
     nsBase3Col {
         cObject = FLUIDTEMPLATE
         cObject {
-            file = typo3conf/ext/ns_theme_agency/Resources/Private/Extensions/Grid/ThreeColumn.html
+            file = EXT:ns_theme_agency/Resources/Private/Extensions/Grid/ThreeColumn.html
         }
     }
 }

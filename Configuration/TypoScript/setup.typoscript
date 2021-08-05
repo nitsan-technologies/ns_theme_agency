@@ -1,0 +1,14 @@
+# Includes Basic Configuration of website
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_agency/Configuration/TypoScript/Configuration" extensions="typoscript">
+
+# Includes EXT:Form Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_agency/Configuration/TypoScript/Extensions/Form" extensions="typoscript">
+
+# Includes EXT:Fluid Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_agency/Configuration/TypoScript/Extensions/Fluid" extensions="typoscript">
+
+# Includes EXT:Grid Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_agency/Configuration/TypoScript/Extensions/GridElements" extensions="typoscript">
+
+# Includes Page Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:ns_theme_agency/Configuration/TypoScript/Page" extensions="typoscript">
