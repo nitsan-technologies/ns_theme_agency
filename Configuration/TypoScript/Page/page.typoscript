@@ -3,11 +3,11 @@ plugin {
     ns_theme_agency {
         settings {
            logo = {$ns_basetheme.website.settings.logo}
-           rootpage = {$ns_basetheme.website.settings.rootpage}
-           facebook = {$ns_theme_agency.website.settings.facebook}
-           twitter = {$ns_theme_agency.website.settings.twitter}
-           linkedin = {$ns_theme_agency.website.settings.linkedin}
-           logoImage = {$ns_theme_agency.website.settings.logoImage}
+           logo_text = {$ns_basetheme.website.settings.logo_text}
+           seo_twitter_link = {$ns_basetheme.website.settings.seo_twitter_link}
+           seo_facebook_link = {$ns_basetheme.website.settings.seo_facebook_link}
+           seo_linkedin_link = {$ns_basetheme.website.settings.seo_linkedin_link}
+           googleanalytics = {$ns_basetheme.website.settings.googleanalytics}
         }
     }
 }
@@ -16,40 +16,54 @@ plugin {
 page = PAGE
 page {
     // Setup favion
-    shortcutIcon = {$ns_basetheme.website.settings.favicon}
+    shortcutIcon = typo3conf/ext/ns_theme_agency/Resources/Public/img/favicon.ico
 
     // Set viewport
     meta {
         viewport = width=device-width, initial-scale=1, shrink-to-fit=no
     }
 
+    headerData {
+        10 = TEXT
+        10.value (
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', '{$ns_theme_agency.website.settings.googleanalytics}', 'auto');
+              ga('send', 'pageview');
+            </script>
+        )
+    }
 
     // Initiate all the css-together
     includeCSS {
         10 >
         20 >
-        50 = EXT:ns_theme_agency/Resources/Public/vendor/bootstrap/css/bootstrap.min.css
-        60 = EXT:ns_theme_agency/Resources/Public/vendor/fontawesome-free/css/all.min.css
+        50 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/bootstrap/css/bootstrap.min.css
+        60 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/fontawesome-free/css/all.min.css
         70 = https://fonts.googleapis.com/css?family=Montserrat:400,700
         80 = https://fonts.googleapis.com/css?family=Kaushan+Script
         90 = https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic
         100 = https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700
-        110 = EXT:ns_theme_agency/Resources/Public/css/agency.min.css
-        120 = EXT:ns_theme_agency/Resources/Public/css/custom.css
+        110 = typo3conf/ext/ns_theme_agency/Resources/Public/css/agency.min.css
+        120 = typo3conf/ext/ns_theme_agency/Resources/Public/css/custom.css
     }
 
     // Initiate all the js-together
     includeJSFooter {
-        10 = EXT:ns_theme_agency/Resources/Public/vendor/jquery/jquery.min.js
+        10 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/jquery/jquery.min.js
     }
 
     includeJS{
-        10 = EXT:ns_theme_agency/Resources/Public/vendor/jquery/jquery.min.js
-        20 = EXT:ns_theme_agency/Resources/Public/vendor/bootstrap/js/bootstrap.bundle.min.js
-        50 = EXT:ns_theme_agency/Resources/Public/vendor/jquery-easing/jquery.easing.min.js
-        60 = EXT:ns_theme_agency/Resources/Public/js/jqBootstrapValidation.js
-        80 = EXT:ns_theme_agency/Resources/Public/js/agency.min.js
-        90 = EXT:ns_theme_agency/Resources/Public/js/custom.js
+        10 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/jquery/jquery.min.js
+        20 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/bootstrap/js/bootstrap.bundle.min.js
+        50 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/jquery-easing/jquery.easing.min.js
+        60 = typo3conf/ext/ns_theme_agency/Resources/Public/js/jqBootstrapValidation.js
+        80 = typo3conf/ext/ns_theme_agency/Resources/Public/js/agency.min.js
+        90 = typo3conf/ext/ns_theme_agency/Resources/Public/js/custom.js
     }
     
     10 = FLUIDTEMPLATE
