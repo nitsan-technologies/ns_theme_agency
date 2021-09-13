@@ -4,7 +4,7 @@
 		<f:if condition="{settings.logo}">
 			<f:then>
 				<f:link.page pageUid="{f:cObject(typoscriptObjectPath: 'lib.rootPageId')}" class="navbar-brand js-scroll-trigger">
-					<img src="{settings.logo}" alt="logo" />
+					<img src="{settings.logo}" alt="logo" height="{settings.logo_height}" width="{settings.logo_width}" />
 				</f:link.page>
 			</f:then>
 			<f:else>

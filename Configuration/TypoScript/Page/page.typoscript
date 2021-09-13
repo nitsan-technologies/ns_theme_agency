@@ -8,6 +8,8 @@ plugin {
            seo_facebook_link = {$ns_basetheme.website.settings.seo_facebook_link}
            seo_linkedin_link = {$ns_basetheme.website.settings.seo_linkedin_link}
            googleanalytics = {$ns_basetheme.website.settings.googleanalytics}
+           logo_width = {$ns_basetheme.website.settings.logo_width}
+           logo_height = {$ns_basetheme.website.settings.logo_height}
         }
     }
 }
