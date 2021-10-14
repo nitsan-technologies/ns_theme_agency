@@ -15,11 +15,11 @@ $EM_CONF['ns_theme_agency'] = array(
 	'author_email' => 'info@nitsan.in',
 	'author_company' => 'NITSAN Technologies Pvt Ltd',
 	'state' => 'stable',
-	'version' => '2.1.6',
+	'version' => '3.0.0',
 	'constraints' => array(
 		'depends' => array(
-            'typo3' => '8.0.0-10.9.99',
-			'ns_basetheme' => '1.0.0-10.9.99',
+            'typo3' => '8.0.0-11.9.99',
+			'ns_basetheme' => '1.0.0-11.9.99',
 			'gridelements' => '8.0.0-10.9.99',
 		),
 		'conflicts' => array(
