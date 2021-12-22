@@ -1,0 +1,5 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:form.button id="sendMessageButton" property="__currentPage" value="{form.pages -> f:count()}" class="btn btn-primary btn-xl text-uppercase">
+		{formvh:translateElementProperty(element: form, renderingOptionProperty: 'submitButtonLabel')}
+	</f:form.button>
+</html>

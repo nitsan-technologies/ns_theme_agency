@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="ns-backend-preview">
+    <h2><b> <f:translate key="LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:wizard.ns_banner" /></b></h2>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="banner-module">
+                        <div class="banner-image">
+                            <f:if condition="{image}">
+                                <f:for each="{image}" as="file">
+                                    <f:image image="{file}" />
+                                </f:for>
+                            </f:if>
+                        </div>
+                        <div class="banner-dec">
+                            <div class="banner-details">
+                                <f:if condition="{flexformData.title}">
+                                    <h3>{flexformData.title}</h3>
+                                </f:if>
+                                <f:if condition="{flexformData.subtitle}">
+                                    <h4>{flexformData.subtitle}</h4>
+                                </f:if>
+                                <f:if condition="{flexformData.btntext}&&{flexformData.scrollid}">
+                                    <f:if condition="{flexformData.btntext}">
+                                        <button class="btn">{flexformData.btntext}</button>
+                                    </f:if>
+                                </f:if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+</html>

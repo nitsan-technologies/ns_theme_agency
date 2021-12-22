@@ -1,0 +1,53 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+  <div class="portfolio {f:if(condition: '{content.check}==1', then: 'bg-light')}">
+    <div class="container {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <f:if condition="{content.headline}">
+            <h2 class="section-heading text-uppercase">{content.headline}</h2>
+          </f:if>
+          <f:if condition="{content.subHeadline}">
+            <h3 class="section-subheading text-muted">{content.subHeadline}</h3>
+          </f:if>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="timeline">
+            <f:for each="{content.gallery}" as="item" iteration="i">
+              <li class="{f:if(condition:'{i.isEven}',then:'timeline-inverted')}">
+                <div class="timeline-image">
+                  <f:if condition="{item.image}">
+                    <f:image src="{item.image}" class="rounded-circle img-fluid" alt="image" width="156c" height="156c" />
+                  </f:if>
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <f:if condition="{item.title}">
+                      <h4>{item.title}</h4>
+                    </f:if>
+                    <f:if condition="{item.subtitle}">
+                      <h4 class="subheading">{item.subtitle}</h4>
+                    </f:if>
+                  </div>
+                  <f:if condition="{item.text}">
+                    <div class="timeline-body">
+                      <f:format.html>{item.text}</f:format.html>
+                    </div>
+                  </f:if>
+                </div>
+              </li>
+            </f:for>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <f:if condition="{content.text}">
+                  <f:format.html>{content.text}</f:format.html>
+                </f:if>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

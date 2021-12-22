@@ -1,0 +1,11 @@
+# Includes Basic Configuration of website
+@import "EXT:ns_theme_agency/Configuration/TypoScript/Configuration"
+
+# Includes EXT:Form Configuration
+@import "EXT:ns_theme_agency/Configuration/TypoScript/Extensions/Form"
+
+# Includes EXT:Fluid Configuration
+@import "EXT:ns_theme_agency/Configuration/TypoScript/Extensions/Fluid"
+
+# Includes Page Configuration
+@import "EXT:ns_theme_agency/Configuration/TypoScript/Page"

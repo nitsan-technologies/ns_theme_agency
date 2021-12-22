@@ -1,0 +1,45 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="ns-backend-preview">
+    <h2><b><f:translate key="LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:wizard.ns_about" /></b></h2>
+    <header>
+        <div class="container">
+
+            <div style="text-align: center;">
+                <f:if condition="{flexformData.headline}">
+                    <h3><b>{flexformData.headline}</b></h3>
+                </f:if>
+                <f:if condition="{flexformData.subHeadline}">
+                    <h4 class="subheader">{flexformData.subHeadline}</h4>
+                </f:if>
+            </div>
+            <f:if condition="{flexformData.gallery}">
+                <ul class="timeline">
+                    <f:for each="{flexformData.gallery}" as="item">
+                        <li>
+                            <div class="portfolio-grid">
+                                <div class="portfolio-image team">
+                                    <f:if condition="{item.container.image}">
+                                        <f:image src="{item.container.image}" width="150c" height="150c" />
+                                    </f:if>
+                                </div>
+                                <div class="portfolio-dec">
+                                    <f:if condition="{item.container.title}">
+                                        <h3>{item.container.title}</h3>
+                                    </f:if>
+                                    <f:if condition="{item.container.subtitle}">
+                                        <h4>{item.container.subtitle}</h4>
+                                    </f:if>
+                                    <f:if condition="{item.container.text}">
+                                        <f:format.html>{item.container.text}</f:format.html>
+                                    </f:if>
+                                </div>
+                            </div>
+                        </li>
+                    </f:for>
+                </ul>
+            </f:if>
+        </div>
+    </header>
+</div>
+
+</html>

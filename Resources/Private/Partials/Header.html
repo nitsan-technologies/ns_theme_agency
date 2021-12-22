@@ -1,0 +1,76 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <f:if condition="{settings.logo}">
+            <f:then>
+                <f:link.page pageUid="{f:cObject(typoscriptObjectPath: 'lib.rootPageId')}"
+                    class="navbar-brand js-scroll-trigger">
+                    <img src="{settings.logo}" alt="logo" class="angency-logo" />
+                    <f:if condition="{settings.logo_text}">{settings.logo_text}</f:if>
+                </f:link.page>
+            </f:then>
+            <f:else>
+                <f:link.page pageUid="{f:cObject(typoscriptObjectPath: 'lib.rootPageId')}"
+                    class="navbar-brand js-scroll-trigger">
+                    {settings.logo_text}
+                </f:link.page>
+            </f:else>
+        </f:if>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-label="Toggle navigation">
+            <f:translate key="header.menu" extensionName="ns_theme_agency" />
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <f:render section="MainMenu" arguments="{MainMenu: MainMenu, data:data}" />
+        </div>
+    </div>
+</nav>
+
+<f:section name="MainMenu">
+    <f:if condition="{MainMenu}">
+        <ul class="navbar-nav text-uppercase ml-auto">
+            <f:for each="{MainMenu}" as="item">
+                <f:if condition="{item.spacer}">
+                    <f:then>
+        </ul>
+        <ul>
+            </f:then>
+            <f:else>
+                <li
+                    class="nav-item menu-{data.uid} {f:if(condition: '{item.data.shortcut} == {data.uid}')} {f:if(condition: item.active, then:' active')} {f:if(condition: item.children, then:' has-sub-menu')}">
+                    <a href="./#{f:format.case(mode: 'lower', value: '{item.title}')}"
+                        class="nav-link js-scroll-trigger" id="nav-item-{item.data.uid}"
+                        data-hash="#{f:format.case(mode: 'lower', value: '{item.title}')}" {f:if(condition: item.target,
+                        then: ' target="{item.target}"' )} title="{item.title}" {f:if(condition: item.children, then:'
+                        aria-haspopup="true" aria-expanded="false"')}>
+                                {item.title}<f:if condition="{item.current}"> <span class="sr-only">(current)</span></f:if>
+                            </a>
+                            <f:if condition="{item.children}">
+                                <ul class="sub-menu-list" aria-labelledby="nav-item-{item.data.uid}">
+                                    <f:for each="{item.children}" as="child">
+                                        <f:if condition="{child.spacer}">
+                                            <f:then>
+                                                <li class="dropdown-divider"></li>
+                                            </f:then>
+                                            <f:else>
+                                                <li>
+                                                    <a href="{child.link}" class="{f:if(condition: child.active, then:'
+                        active')}"{f:if(condition: child.target, then: ' target="{child.target}"' )}
+                        title="{child.title}">
+                        {child.title}<f:if condition="{child.current}"> <span class="sr-only">(current)</span></f:if>
+                    </a>
+                </li>
+            </f:else>
+    </f:if>
+    </f:for>
+    </ul>
+    </f:if>
+    </li>
+    </f:else>
+    </f:if>
+    </f:for>
+    </ul>
+    </f:if>
+</f:section>

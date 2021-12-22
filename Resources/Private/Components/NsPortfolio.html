@@ -1,0 +1,75 @@
+<div class="portfolio-section">
+  <div class="{f:if(condition: '{content.check}==1', then: 'bg-light')} portfolio">
+    <div
+      class="container {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <f:if condition="{content.title}">
+            <h2 class="section-heading text-uppercase">{content.title}</h2>
+          </f:if>
+          <f:if condition="{content.subtitle}">
+            <h3 class="section-subheading text-muted">{content.subtitle}</h3>
+          </f:if>
+        </div>
+      </div>
+      <div class="row">
+        <f:for each="{content.portfolio}" as="item" iteration="i">
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{i.cycle}">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <f:if condition="{item.image}">
+                <f:image src="{item.image}" class="img-fluid" alt="image" width="350c" height="263c" />
+              </f:if>
+            </a>
+            <div class="portfolio-caption">
+              <f:if condition="{item.title}">
+                <h4>{item.title}</h4>
+              </f:if>
+              <f:if condition="{item.subtitle}">
+                <p class="text-muted">{item.subtitle}</p>
+              </f:if>
+            </div>
+          </div>
+        </f:for>
+      </div>
+    </div>
+
+    <f:for each="{content.portfolio}" as="item" iteration="i">
+      <div class="portfolio-modal modal fade" id="portfolioModal{i.cycle}" tabindex="-1" role="dialog"
+        aria-hidden="true" style="z-index: 9999;">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+              <div class="lr">
+                <div class="rl"></div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8 mx-auto">
+                  <div class="modal-body">
+                    <!-- Project Details Go Here -->
+                    <h2 class="text-uppercase">{item.title}</h2>
+                    <p class="item-intro text-muted">{item.subtitle}</p>
+                    <f:if condition="{item.image}">
+                      <f:image src="{item.image}" class="img-fluid d-block mx-auto" alt="image" />
+                    </f:if>
+                    <f:format.html>{item.text}</f:format.html>
+                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <i class="fas fa-times"></i>
+                      <f:translate key="close" extensionName="ns_theme_agency" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </f:for>
+  </div>
+</div>

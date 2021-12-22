@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-07-24T20:37:42Z">
+		<header/>
+		<body>
+            <trans-unit id="palette.access">
+                <source>Access</source>
+            </trans-unit>
+            <trans-unit id="general.headline">
+                <source>Headline</source>
+            </trans-unit>
+            <trans-unit id="general.subheadline">
+                <source>Sub Headline</source>
+            </trans-unit>
+            <trans-unit id="general.content">
+                <source>Add New Content</source>
+            </trans-unit>
+            <trans-unit id="general.image">
+                <source>Upload image</source>
+            </trans-unit>
+            <trans-unit id="general.link">
+                <source>Link</source>
+            </trans-unit>
+            <trans-unit id="general.text">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="general.bgimage">
+                <source>Background Image</source>
+            </trans-unit>
+            <trans-unit id="general.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="general.subtitle">
+                <source>Sub Title</source>
+            </trans-unit>
+            <trans-unit id="general.btnlink">
+                <source>Button Link</source>
+            </trans-unit>
+            <trans-unit id="general.btntext">
+                <source>Button Text</source>
+            </trans-unit>
+            <trans-unit id="general.scrollid">
+                <source>Scroll Id</source>
+            </trans-unit>
+            <trans-unit id="general.icon">
+                <source>Select Icon</source>
+            </trans-unit>
+            <trans-unit id="teaser.check">
+                <source>Check for team element</source>
+            </trans-unit>
+            <trans-unit id="general.bottomtext">
+                <source>Bottom Text</source>
+            </trans-unit>
+            <trans-unit id="general.year">
+                <source>Bottom Text</source>
+            </trans-unit>
+            <trans-unit id="general.twitter">
+                <source>Twitter Link</source>
+            </trans-unit>
+            <trans-unit id="general.facebook">
+                <source>Facebook Link</source>
+            </trans-unit>
+            <trans-unit id="general.linkedin">
+                <source>Linked In Link</source>
+            </trans-unit>
+            <trans-unit id="grid.bgcheck">
+                <source>Check For Grey Background Color</source>
+            </trans-unit>
+            <trans-unit id="grid.widthcheck">
+                <source>Check For Container Width</source>
+            </trans-unit>
+            <trans-unit id="grid.portfoliocheck">
+                <source>Check For Portfolio Items</source>
+            </trans-unit>
+            <trans-unit id="general.fields">
+                <source>Fields</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

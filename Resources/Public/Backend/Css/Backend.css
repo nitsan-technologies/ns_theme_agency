@@ -1,0 +1,289 @@
+/* Start Genaral CSS for Backend */
+.ns-backend-preview {
+  margin-top: 15px;
+}
+
+.ns-backend-preview .container {
+  margin: 0px;
+  width: 100%;
+}
+
+.ns-backend-preview a {
+  text-decoration: none;
+}
+
+.ns-backend-preview h1,
+.ns-backend-preview h2,
+.ns-backend-preview h3,
+.ns-backend-preview h4,
+.ns-backend-preview h5,
+.ns-backend-preview h6 {
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+
+.ns-backend-preview h1,
+.ns-backend-preview h2,
+.ns-backend-preview h3 {
+  margin-bottom: 20px;
+}
+
+.ns-backend-preview h1 {
+  font-size: 28px;
+  line-height: 30px;
+}
+
+.ns-backend-preview h2 {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.ns-backend-preview h3 {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.ns-backend-preview h4 {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.ns-backend-preview h5 {
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.ns-backend-preview h6 {
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.ns-backend-preview picture {
+  display: block;
+}
+
+.ns-backend-preview p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 15px;
+}
+
+.ns-backend-preview img {
+  height: auto;
+  max-width: 100%;
+  width: auto;
+}
+
+.ns-backend-preview video {
+  max-width: 100%;
+  width: auto;
+}
+
+.ns-backend-preview figure {
+  margin: 0 0 15px;
+}
+
+.ns-backend-preview ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ns-backend-preview .btn {
+  border: 1px solid #676767;
+  box-shadow: none;
+  color: #676767;
+  margin-bottom: 5px;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  transition: all 0.2s ease 0.2s;
+  -webkit-transition: all 0.2s ease 0.2s;
+}
+
+.ns-backend-preview .btn:hover,
+.ns-backend-preview .btn:focus,
+.ns-backend-preview .btn:active {
+  background-color: #676767;
+  color: #fff;
+}
+
+.bg-img {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-img--overlay {
+  position: relative;
+}
+
+.bg-img--overlay * {
+  border-color: #fff !important;
+  color: #fff !important;
+  position: relative;
+}
+
+.bg-img--overlay::before {
+  background-color: rgba(5, 5, 5, 0.5);
+  content: "";
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.ns-backend-preview .content-section {
+  padding: 40px;
+}
+
+.ns-backend-preview .carousel-inner {
+  margin-bottom: 20px;
+}
+
+/* banner */
+.t3-page-ce .t3-page-ce-body-inner .banner-module img {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.banner-dec {
+  position: absolute;
+  top: 0;
+  margin: auto;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.banner-details .btn {
+  margin-top: 20px;
+}
+
+/* portfolio */
+.portfolio-grid {
+  display: flex;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 50%;
+}
+
+.timeline li:nth-child(even) {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+
+}
+
+.timeline li:nth-child(odd) .portfolio-image.team {
+  order: 2;
+  position: relative;
+  right: -75px;
+}
+
+.timeline li:nth-child(odd) .portfolio-dec {
+  text-align: end;
+}
+
+.timeline li:nth-child(even) .portfolio-dec {
+  text-align: start;
+}
+
+.timeline li:nth-child(even) .portfolio-image.team {
+  position: relative;
+  left: -12%;
+}
+
+.timeline {
+  position: relative;
+  padding: 0;
+  list-style: none;
+   margin-top: 30px;
+}
+
+.timeline:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  margin-left: -1.5px;
+  content: '';
+  background-color: #e9ecef;
+}
+
+.portfolio-dec {
+  width: calc(100% - 150px);
+}
+
+.portfolio-image {
+  margin-bottom: 10px;
+}
+
+.t3-page-ce .t3-page-ce-body-inner .portfolio-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.portfolio-image.team img {
+  border-radius: 50%;
+}
+
+.portfolio-image.teaser i {
+  font-size: 35px;
+}
+
+.t3-page-ce .t3-page-ce-body-inner .portfolio-image.teaser img,
+.t3-page-ce .t3-page-ce-body-inner .portfolio-image.team img {
+  border-radius: 50%;
+  height: 150px !important;
+  object-fit: cover;
+  width: 150px;
+}
+
+.portfolio-dec {
+  padding: 15px;
+}
+
+.ns-backend-preview .portfolio-dec h3 {
+  margin-bottom: 10px;
+}
+
+.ns-backend-preview .subheader {
+  margin-bottom: 20px;
+}
+
+.fab {
+  font-family: 'fontawesome';
+  font-size: 20px;
+  font-style: initial;
+  margin-right: 10px;
+}
+
+.por-grid.portfolio.portfolio {
+  border: 1px solid #e3e3e3;
+  margin-top: 20px;
+}
+
+.teser-grid {
+  text-align: center;
+}
+
+.teser-grid .portfolio-dec,
+.por-grid.portfolio .portfolio-dec,
+.por-grid.portfolio {
+  text-align: center;
+  margin: auto;
+}
+
+.timeline::before >li:last-child {
+  min-height: 130px !important;
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-06T20:41:06Z" product-name="NITSANpageadds">
+		<header/>
+		<body>
+            <trans-unit id="palette.access">
+                <source>Access</source>
+            </trans-unit>
+            <trans-unit id="headline">
+                <source>Headline</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_banner">
+                <source>Banner With CTA</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_banner.desc">
+                <source>Banner with image, title, subtitle and link.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_headline">
+                <source>Headline</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_headline.desc">
+                <source>Headline and subheadline center align.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_teaser">
+                <source>Teaser</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_teaser.desc">
+                <source>Teaser and Team element with title, text and image.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_about">
+                <source>About</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_about.desc">
+                <source>About element with year, title and text.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_portfolio">
+                <source>Portfolio</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_portfolio.desc">
+                <source>Portfolio section with modelbox.</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_logos">
+                <source>Logos</source>
+            </trans-unit>
+            <trans-unit id="wizard.ns_logos.desc">
+                <source>Logos with field image.</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

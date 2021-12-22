@@ -1,0 +1,79 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+  <div class="{f:if(condition: '{content.check}==1', then: 'bg-light')} portfolio">
+    <div class="container {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <f:if condition="{content.headline}">
+            <h2 class="section-heading text-uppercase">{content.headline}</h2>
+          </f:if>
+          <f:if condition="{content.subHeadline}">
+            <h3 class="section-subheading text-muted">{content.subHeadline}</h3>
+          </f:if>
+        </div>
+      </div>
+      <div class="row text-center">
+        <f:for each="{content.teaser}" as="teaserData">
+          <div class="col-md-4">
+            <f:if condition="{teaserData.check}">
+              <f:then>
+                <div class="team-member">
+                  <f:if condition="{teaserData.image}">
+                    <f:image src="{teaserData.image}" class="mx-auto rounded-circle" width="225c" height="225c" />
+                  </f:if>
+                  <h4>{teaserData.title}</h4>
+                  <f:if condition="{teaserData.text}">
+                    <f:format.html>{teaserData.text}</f:format.html>
+                  </f:if>
+                  <ul class="list-inline social-buttons">
+                    <f:if condition="{teaserData.twitter}">
+                      <li class="list-inline-item">
+                        <f:link.typolink parameter="{teaserData.twitter}">
+                          <i class="fab fa-twitter"></i>
+                        </f:link.typolink>
+                      </li>
+                    </f:if>
+                    <f:if condition="{teaserData.facebook}">
+                      <li class="list-inline-item">
+                        <f:link.typolink parameter="{teaserData.facebook}">
+                          <i class="fab fa-facebook-f"></i>
+                        </f:link.typolink>
+                      </li>
+                    </f:if>
+                    <f:if condition="{teaserData.linkedin}">
+                      <li class="list-inline-item">
+                        <f:link.typolink parameter="{teaserData.linkedin}">
+                          <i class="fab fa-linkedin-in"></i>
+                        </f:link.typolink>
+                      </li>
+                    </f:if>
+                  </ul>
+                </div>
+              </f:then>
+              <f:else>
+                <div class="icon-teaser">
+                  <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas {teaserData.icon} fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <f:if condition="{teaserData.title}">
+                    <h4 class="service-heading">{teaserData.title}</h4>
+                  </f:if>
+                  <f:if condition="{teaserData.text}">
+                    <f:format.html>{teaserData.text}</f:format.html>
+                  </f:if>
+                </div>
+              </f:else>
+            </f:if>
+          </div>
+        </f:for>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center highed">
+          <f:if condition="{content.otherText}">
+            <f:format.html>{content.otherText}</f:format.html>
+          </f:if>
+        </div>
+      </div>
+    </div>
+  </div>  
+</html>

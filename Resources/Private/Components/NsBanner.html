@@ -1,0 +1,22 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+    <f:variable name="bgImage" value="{f:uri.image(image:'{image.0}',maxWidth:'2000')}" />
+    <header class="masthead {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}"
+        id="home" style="background-image: url({bgImage})">
+        <div class="container">
+            <div class="intro-text">
+                <f:if condition="{content.title}">
+                    <div class="intro-lead-in">{content.title}</div>
+                </f:if>
+                <f:if condition="{content.subtitle}">
+                    <div class="intro-heading text-uppercase">{content.subtitle}</div>
+                </f:if>
+                <f:if condition="{content.btntext} && {content.scrollid}">
+                    <f:link.typolink parameter="#{content.scrollid}"
+                        class="btn btn-primary btn-xl text-uppercase js-scroll-trigger">
+                        {content.btntext}
+                    </f:link.typolink>
+                </f:if>
+            </div>
+        </div>
+    </header>
+</html>

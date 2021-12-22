@@ -1,0 +1,4 @@
+# Include the BackendLayouts
+@import "EXT:ns_theme_agency/Configuration/PageTSconfig/BackendLayouts"
+@import "EXT:ns_theme_agency/Configuration/PageTSconfig/TceForm"
+

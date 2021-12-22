@@ -1,0 +1,18 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<div class="site-main">
+		<section>
+			<f:if condition="{data.layout} == '1'">
+				<f:then>
+					<div class="container">
+						<f:cObject typoscriptObjectPath="lib.content" />
+					</div>
+				</f:then>
+				<f:else>
+					<f:cObject typoscriptObjectPath="lib.content" />
+				</f:else>
+			</f:if>
+		</section>	
+	</div>
+</f:section>

@@ -1,0 +1,52 @@
+<!-- Footer -->
+<footer>
+    <div class="container">
+		<div class="row">
+		    <div class="col-md-4">
+		      	<span class="copyright"><f:cObject typoscriptObjectPath="lib.copyright"/></span>
+		    </div>
+		    <div class="col-md-4">
+				<ul class="list-inline social-buttons">
+					<f:if condition="{settings.seo_twitter_link}">
+					    <li class="list-inline-item">
+							<f:link.typolink parameter="{settings.seo_twitter_link}" target="_blank">
+								<i class="fab fa-twitter"></i>
+							</f:link.typolink>
+					    </li>
+					</f:if>
+					<f:if condition="{settings.seo_facebook_link}">
+					    <li class="list-inline-item">
+							<f:link.typolink parameter="{settings.seo_facebook_link}" target="_blank">
+								<i class="fab fa-facebook-f"></i>
+							</f:link.typolink>
+					    </li>
+					</f:if>
+					<f:if condition="{settings.seo_linkedin_link}">
+					    <li class="list-inline-item">
+							<f:link.typolink parameter="{settings.seo_linkedin_link}" target="_blank">
+								<i class="fab fa-linkedin-in"></i>
+							</f:link.typolink>
+					    </li>
+					</f:if>
+				</ul>
+		    </div>
+		    <div class="col-md-4">
+				<f:render section="FooterMenu" arguments="{FooterMenu: FooterMenu}" />
+		    </div>
+		</div>
+    </div>
+</footer>
+
+<f:section name="FooterMenu">
+    <f:if condition="{FooterMenu}">
+    	<ul class="list-inline quicklinks">
+	        <f:for each="{FooterMenu}" as="item">
+            	<li class="list-inline-item">
+                    <a href="{item.link}" id="nav-item-{item.data.uid}">
+                        {item.title}
+                    </a>
+                </li>
+	        </f:for>
+	    </ul>    
+    </f:if>
+</f:section>

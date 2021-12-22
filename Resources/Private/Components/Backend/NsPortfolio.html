@@ -1,0 +1,41 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="ns-backend-preview">
+    <h2><b><f:translate key="LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:wizard.ns_portfolio" /></b></h2>
+    <header>
+        <div class="row">
+            <div style="text-align: center;">
+                <f:if condition="{flexformData.title}">
+                    <h3><b>{flexformData.title}</b></h3>
+                </f:if>
+                <f:if condition="{flexformData.subtitle}">
+                    <h4 class="subheader">{flexformData.subtitle}</h4>
+                </f:if>
+            </div>
+            <f:if condition="{flexformData.portfolio}">
+                <f:for each="{flexformData.portfolio}" as="item" iteration="i">
+                    <f:if condition="{i.index} <= 2">
+                        <div class="col-md-4">
+                            <div class="por-grid portfolio">
+                                <div class="portfolio-image">
+                                    <f:if condition="{item.container.image}">
+                                        <f:image src="{item.container.image}" width="150c" height="150c" />
+                                    </f:if>
+                                </div>
+                                <div class="portfolio-dec">
+                                    <f:if condition="{item.container.title}">
+                                        <h3>{item.container.title}</h3>
+                                    </f:if>
+                                    <f:if condition="{item.container.subtitle}">
+                                        <h6>{item.container.subtitle}</h6>
+                                    </f:if>
+                                </div>
+                            </div>
+                        </div>
+                    </f:if>
+                </f:for>
+            </f:if>
+        </div>
+    </header>
+</div>
+
+</html>

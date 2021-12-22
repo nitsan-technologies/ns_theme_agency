@@ -1,0 +1,579 @@
+/****************************************************************************
+  Custom Styles
+***************************************************************************/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+li.nav-item.active a {
+  color: #fed136 !important;
+}
+
+.container li{
+  margin: 20px;
+}
+
+.timeline>li:last-child {
+  min-height: 130px !important;
+}
+
+.portfolio-section .portfolio-item .portfolio-link .portfolio-hover:hover {
+  opacity: 1;
+}
+
+.portfolio-section .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 20px;
+  margin-top: -12px;
+  text-align: center;
+  color: white;
+}
+
+.portfolio-section .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
+  margin-top: -12px;
+}
+
+.portfolio-section .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
+.portfolio-section .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
+  margin: 0;
+}
+
+.portfolio-section .portfolio-item .portfolio-caption {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 25px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.portfolio-section .portfolio-item .portfolio-caption h4 {
+  margin: 0;
+  text-transform: none;
+}
+
+.portfolio-section .portfolio-item .portfolio-caption p {
+  font-size: 16px;
+  font-style: italic;
+  margin: 0;
+  font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.portfolio-section .portfolio-item .portfolio-link {
+  position: relative;
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.portfolio-section .portfolio-item .portfolio-link .portfolio-hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  opacity: 0;
+  background: rgba(254, 209, 54, 0.9);
+}
+
+.portfolio-section * {
+  z-index: 2;
+}
+
+.site-main form textarea.form-control {
+  height: 145px !important;
+}
+
+form button#sendMessageButton {
+  margin-top: 35px;
+}
+
+h2.section-heading {
+  margin-top: 50px;
+}
+
+footer .quicklinks a{
+    color: #fed136;
+}
+.timeline-body p{
+    color:#6c757d;
+}
+.fa-stack{
+    width: 2em;
+    transition: 0.3s;
+}
+.fa-stack:hover {
+    transform: scale(1.1);
+}
+.fa-stack .fa-inverse{
+    font-size: 0.9em;
+}
+footer .quicklinks a:hover{
+    text-decoration: underline !important;
+}
+footer .quicklinks a:hover{
+    text-decoration: none;
+    color: #fed136;
+}
+.team-member img{
+    border: 7px solid rgba(0,0,0,.1);
+    transition: 0.3s;
+}
+.team-member img:hover {
+    transform: scale(1.1);
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover img{
+    width: 100% !important;
+}
+#portfolio{
+    padding:0;
+}
+.error.help-block{
+    position: absolute;
+    color:#dc3545;
+    font-weight: 600;
+}
+.highed p{
+    color:#6c757d!important
+}
+.content #mainNav{
+    background-color: #212529;
+}
+.content nav.fixed-top+ section{
+    padding-top: 150px;
+    min-height: calc(100vh - 110px);
+}
+.timeline-image {
+    transition: 0.3s;
+}
+.timeline-image:hover {
+  transform: scale(1.1);
+}
+.timeline-image p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 18px;
+    line-height: 26px;
+    width: 100%;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+}
+@media (min-width: 1200px){
+    #portfolio .portfolio-item .portfolio-link{
+        max-height: 263px;
+        overflow: hidden;
+    }
+}
+@media (min-width: 992px){
+    #portfolio .portfolio-item .portfolio-link{
+        max-height: 217px;
+        overflow: hidden;
+    }
+}
+@media (min-width: 768px){
+    #portfolio .portfolio-item .portfolio-link{
+        max-height: 157px;
+        overflow: hidden;
+    }
+    section,.portfolio {
+        padding: 65px 0;
+    }
+    .timeline>li .timeline-image{
+        width: 130px;
+        height: 130px;
+        margin-left: -65px;
+    }
+}
+@media (min-width: 767px) {
+  .portfolio-section .portfolio-item {
+    margin: 0 0 30px;
+  }
+}
+@media(max-width: 767px){
+    .timeline>li .timeline-image{
+        border-width: 4px;
+        width: 100px;
+        height: 100px;
+    }
+    .timeline:before{
+        left:54px;
+    }
+    .timeline>li .timeline-panel,.timeline>li.timeline-inverted>.timeline-panel{
+        padding: 0 0 0 110px;
+    }
+    .error.help-block{
+      font-size: 15px;
+    }
+}
+@media (min-width:565px){
+    #portfolio .portfolio-item .portfolio-link{
+        max-height: 180px;
+        overflow: hidden;
+    }
+}
+@media (max-width:992px){
+    section,.portfolio{
+        padding:50px 0;
+    }
+    section h3.section-subheading{
+        margin-bottom: 40px;
+    }
+   .content nav.fixed-top+ section{
+        padding-top: 100px;
+    }
+    .timeline-image p{
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+.content section{
+    min-height: calc(100vh - 110px);
+}
+
+.frame-space-before-extra-small { margin-top: 0.5em; }
+.frame-space-before-small { margin-top: 1em; }
+.frame-space-before-medium { margin-top: 2em; }
+.frame-space-before-large { margin-top: 3em; }
+.frame-space-before-extra-large { margin-top: 4em; }
+.frame-space-after-extra-small { margin-bottom: 0.5em; }
+.frame-space-after-small { margin-bottom: 1em; }
+.frame-space-after-medium { margin-bottom: 2em; }
+.frame-space-after-large { margin-bottom: 3em; }
+.frame-space-after-extra-large { margin-bottom: 4em; }
+
+.site-main {
+    padding-top: 65px;
+}
+
+/* cms page css */
+
+.ce-align-left {
+  text-align: left;
+}
+
+.ce-align-center {
+  text-align: center;
+}
+
+.ce-align-right {
+  text-align: right;
+}
+
+.ce-table td,
+.ce-table th {
+  vertical-align: top;
+}
+
+hr {
+  border-top: solid 1px #fff;
+}
+
+.ce-textpic,
+.ce-nowrap .ce-bodytext,
+.ce-gallery,
+.ce-row,
+.ce-uploads li,
+.ce-uploads div {
+  overflow: hidden;
+}
+
+.ce-center .ce-outer {
+  float: right;
+  position: relative;
+  right: 50%;
+}
+
+.ce-center .ce-inner {
+  float: right;
+  position: relative;
+  right: -50%;
+}
+
+.ce-gallery figure {
+  display: table;
+  margin: auto;
+}
+
+.ce-gallery figcaption {
+  caption-side: bottom;
+  display: table-caption;
+  hyphens: manual;
+  word-break: break-all;
+}
+
+.ce-gallery img {
+  display: block;
+}
+
+.ce-gallery iframe {
+  border-width: 0;
+}
+
+.ce-border img,
+.ce-border iframe {
+  border: 2px solid #000;
+  padding: 0;
+}
+
+.ce-intext.ce-right .ce-gallery,
+.ce-intext.ce-left .ce-gallery,
+.ce-above .ce-gallery,
+.ce-below .ce-gallery {
+  margin-bottom: 0;
+}
+
+.ce-intext.ce-right .ce-gallery {
+  margin-top: 3px;
+}
+
+.ce-intext.ce-left .ce-gallery {
+  margin-top: 3px;
+}
+
+.ce-intext.ce-right .ce-bodytext h5,
+.ce-intext.ce-left .ce-bodytext h5 {
+  margin-top: 4px;
+}
+
+.ce-above .ce-gallery {
+  margin-top: 0;
+}
+
+.ce-below.ce-right .ce-gallery,
+.ce-below.ce-left .ce-gallery,
+.ce-below.ce-center .ce-gallery {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.ce-column {
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+.ce-column:last-child {
+  margin-right: 0;
+}
+
+.ce-row {
+  margin-bottom: 10px;
+}
+
+.ce-row:last-child {
+  margin-bottom: 0;
+}
+
+.ce-above .ce-bodytext {
+  clear: both;
+}
+
+.ce-intext.ce-left ol,
+.ce-intext.ce-left ul {
+  overflow: auto;
+  padding-left: 40px;
+}
+
+.ce-intext.ce-left ul {
+  padding-left: 0;
+}
+
+.ce-uploads img {
+  margin-top: 5px;
+}
+
+.ce-uploads span {
+  display: block;
+}
+
+.float-left img {
+  margin-right: 20px;
+}
+
+.float-right img {
+  margin-left: 20px;
+}
+
+.frame .ce-textpic {
+  padding-bottom: 20px;
+}
+
+.frame .ce-textpic img {
+  margin-bottom: 10px;
+}
+
+.frame .ce-textpic.ce-left {
+  padding-bottom: 0;
+}
+
+.frame .ce-textpic.ce-left .ce-gallery img {
+  margin-bottom: 0;
+}
+
+.button-group {
+  margin: 20px auto;
+}
+
+.cc-window {
+  flex-wrap: wrap;
+}
+
+.cc-message {
+  margin-bottom: 10px;
+}
+
+.ce-right .ce-gallery,
+.ce-left .ce-gallery {
+  float: none;
+  margin: 0 auto;
+}
+
+.ce-column {
+  float: none;
+}
+
+.ce-image img {
+  margin-bottom: 10px;
+}
+
+.video-section .ce-textpic {
+  padding-bottom: 0;
+}
+
+.frame-space-after-extra-large {
+  margin-bottom: 70px;
+}
+
+.frame-space-before-extra-large {
+  margin-top: 70px;
+}
+
+.frame-space-after-large {
+  margin-bottom: 50px;
+}
+
+.frame-space-before-large {
+  margin-top: 50px;
+}
+
+.frame-space-after-medium {
+  margin-bottom: 30px;
+}
+
+.frame-space-before-medium {
+  margin-top: 30px;
+}
+
+.frame-space-after-small {
+  margin-bottom: 20px;
+}
+
+.frame-space-before-small {
+  margin-top: 20px;
+}
+
+.frame-space-after-extra-small {
+  margin-bottom: 12px;
+}
+
+.frame-space-before-extra-small {
+  margin-top: 12px;
+}
+
+header.masthead .intro-text .intro-lead-in {
+  line-height: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  header.masthead .intro-text .intro-lead-in {
+    line-height: 50px;
+  }
+
+  .frame-space-after-extra-large {
+    margin-bottom: 130px;
+  }
+
+  .frame-space-before-extra-large {
+    margin-top: 130px;
+  }
+
+  .frame-space-after-large {
+    margin-bottom: 80px;
+  }
+
+  .frame-space-before-large {
+    margin-top: 80px;
+  }
+
+  .frame-space-after-medium {
+    margin-bottom: 50px;
+  }
+
+  .frame-space-before-medium {
+    margin-top: 50px;
+  }
+
+  .frame-space-after-small {
+    margin-bottom: 40px;
+  }
+
+  .frame-space-before-small {
+    margin-top: 40px;
+  }
+
+  .frame-space-after-extra-small {
+    margin-bottom: 25px;
+  }
+
+  .frame-space-before-extra-small {
+    margin-top: 25px;
+  }
+
+  .ce-left .ce-gallery,
+  .ce-column {
+    float: left;
+  }
+
+  .ce-right .ce-gallery {
+    float: right;
+  }
+
+  .ce-intext.ce-right .ce-gallery {
+    margin-left: 50px;
+  }
+
+  .ce-intext.ce-left .ce-gallery {
+    margin-right: 50px;
+  }
+}
+
+#contact{
+  margin-top: -80px;
+}
+
+#ns_basetheme_back_to_top {
+  height: 40px;
+  width: 40px;
+  z-index: 1 !important;
+  border-radius: 50%;
+  box-shadow: 1px 2px 2px 0px;
+  font-size: 25px;
+  padding-top: 5px;
+}
+
+.angency-logo {
+  width: 120px;
+  height: 40px;
+}

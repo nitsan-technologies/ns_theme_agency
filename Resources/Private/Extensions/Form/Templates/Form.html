@@ -1,0 +1,28 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+	<div class="container">
+		<div class="col-lg-12">
+			<formvh:renderRenderable renderable="{form}">
+				<formvh:form
+						object="{form}"
+						action="{form.renderingOptions.controllerAction}"
+						method="{form.renderingOptions.httpMethod}"
+						id="{form.identifier}"
+						section="{form.identifier}"
+						enctype="{form.renderingOptions.httpEnctype}"
+						addQueryString="{form.renderingOptions.addQueryString}"
+						argumentsToBeExcludedFromQueryString="{form.renderingOptions.argumentsToBeExcludedFromQueryString}"
+						additionalParams="{form.renderingOptions.additionalParams}"
+				>
+				<div class="row">				
+					<f:render partial="{form.currentPage.templateName}" arguments="{page: form.currentPage}" />
+					<div class="col-lg-12 text-center">
+						<div id="success"></div>
+						<f:render partial="Form/Navigation" arguments="{form: form}" />
+					</div>
+				</div>
+
+				</formvh:form>
+			</formvh:renderRenderable>
+		</div>
+	</div>	
+</html>

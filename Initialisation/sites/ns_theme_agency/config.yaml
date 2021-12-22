@@ -1,0 +1,69 @@
+base: /
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=4'
+languages:
+  -
+    title: English
+    enabled: true
+    languageId: 0
+    base: /
+    typo3Language: default
+    locale: en_US.UTF-8
+    iso-639-1: en
+    navigationTitle: English
+    hreflang: en-US
+    direction: ''
+    flag: gb
+rootPageId: 1
+routeEnhancers:
+  NewsPlugin:
+    type: Extbase
+    limitToPages:
+      - 13
+      - 0
+      - 0
+    extension: News
+    plugin: Pi1
+    routes:
+      -
+        routePath: '/{news_title}'
+        _controller: 'News::detail'
+        _arguments:
+          news_title: news
+      -
+        routePath: '/{category_name}'
+        _controller: 'News::list'
+        _arguments:
+          category_name: overwriteDemand/categories
+      -
+        routePath: '/{tag_name}'
+        _controller: 'News::list'
+        _arguments:
+          tag_name: overwriteDemand/tags
+    defaultController: 'News::list'
+    aspects:
+      news_title:
+        type: PersistedAliasMapper
+        tableName: tx_news_domain_model_news
+        routeFieldName: path_segment
+      category_name:
+        type: PersistedAliasMapper
+        tableName: sys_category
+        routeFieldName: title
+      tag_name:
+        type: PersistedAliasMapper
+        tableName: tx_news_domain_model_tag
+        routeFieldName: title
+routes:
+  -
+    route: robots.txt
+    type: staticText
+    content: "User-agent: *\r\nDisallow: /typo3/\r\nDisallow: /typo3_src/\r\nAllow: /typo3/sysext/frontend/Resources/Public/*\r\n"
+  -
+    route: sitemap.xml
+    type: uri
+    source: 'http://t3t-agency.ddev.site/?sitemap=pages&type=1533906435'
+websiteTitle: ''
