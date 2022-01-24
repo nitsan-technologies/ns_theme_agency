@@ -27,7 +27,7 @@
     "nitsan/ns-basetheme": ">=10.0.0"
   },
   "replace": {
-      "nitsan/ns-theme-agency": "self.version"
+      "typo3-ter/ns-theme-agency": "self.version"
   },
   "extra": {
       "typo3/cms": {
