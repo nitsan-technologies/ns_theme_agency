@@ -39,7 +39,7 @@
             </f:then>
             <f:else>
                 <li
-                    class="nav-item menu-{data.uid} {f:if(condition: '{item.data.shortcut} == {data.uid}')} {f:if(condition: item.active, then:' active')} {f:if(condition: item.children, then:' has-sub-menu')}">
+                    class="nav-item menu-{data.uid} {f:if(condition: item.children, then:' has-sub-menu')}">
                     <a href="./#{f:format.case(mode: 'lower', value: '{item.title}')}"
                         class="nav-link js-scroll-trigger" id="nav-item-{item.data.uid}"
                         data-hash="#{f:format.case(mode: 'lower', value: '{item.title}')}" {f:if(condition: item.target,

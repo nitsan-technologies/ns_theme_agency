@@ -15,21 +15,12 @@ plugin {
 }
 
 # <body> class based on backend_layout
-page.bodyTag >
+page.bodyTag > 
+page.bodyTagCObject = TEXT
+page.bodyTagCObject.value= content
+page.bodyTagCObject.wrap = <body class="|"  id="page-top">
 
-[page["backend_layout"] == 'pagets__content']
-    page.bodyTagCObject = TEXT
-    page.bodyTagCObject {
-        data = field:id
-        wrap = <body class="content" id="page-top">
-    }
-[else]
-    page.bodyTagCObject = TEXT
-    page.bodyTagCObject {
-        data = field:id
-        wrap = <body class="default" id="page-top">
-    }
-[end]
+
 
 // Initiate Page Object
 page = PAGE
@@ -93,6 +84,7 @@ page {
         
         settings < plugin.ns_theme_agency.settings
     }
+
 }
 
 # Get default content
