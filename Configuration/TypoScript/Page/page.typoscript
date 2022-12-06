@@ -39,10 +39,6 @@ page {
         20 >
         50 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/bootstrap/css/bootstrap.min.css
         60 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/fontawesome-free/css/all.min.css
-        70 = https://fonts.googleapis.com/css?family=Montserrat:400,700
-        80 = https://fonts.googleapis.com/css?family=Kaushan+Script
-        90 = https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic
-        100 = https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700
         110 = typo3conf/ext/ns_theme_agency/Resources/Public/css/agency.min.css
         120 = typo3conf/ext/ns_theme_agency/Resources/Public/css/custom.css
     }
