@@ -1,3 +1,6 @@
+
+
+
 # Grab all the constant
 plugin {
     ns_theme_agency {
@@ -37,24 +40,24 @@ page {
     includeCSS {
         10 >
         20 >
-        50 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/bootstrap/css/bootstrap.min.css
-        60 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/fontawesome-free/css/all.min.css
-        110 = typo3conf/ext/ns_theme_agency/Resources/Public/css/agency.min.css
-        120 = typo3conf/ext/ns_theme_agency/Resources/Public/css/custom.css
+        50 = EXT:ns_theme_agency/Resources/Public/vendor/bootstrap/css/bootstrap.min.css
+        60 = EXT:ns_theme_agency/Resources/Public/vendor/fontawesome-free/css/all.min.css
+        110 = EXT:ns_theme_agency/Resources/Public/css/agency.min.css
+        120 = EXT:ns_theme_agency/Resources/Public/css/custom.css
     }
 
     // Initiate all the js-together
     includeJSFooter {
-        10 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/jquery/jquery.min.js
+        10 = EXT:ns_theme_agency/Resources/Public/vendor/jquery/jquery.min.js
     }
 
     includeJS {
-        10 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/jquery/jquery.min.js
-        20 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/bootstrap/js/bootstrap.bundle.min.js
-        50 = typo3conf/ext/ns_theme_agency/Resources/Public/vendor/jquery-easing/jquery.easing.min.js
-        60 = typo3conf/ext/ns_theme_agency/Resources/Public/js/jqBootstrapValidation.js
-        80 = typo3conf/ext/ns_theme_agency/Resources/Public/js/agency.min.js
-        90 = typo3conf/ext/ns_theme_agency/Resources/Public/js/custom.js
+  10 = EXT:ns_theme_agency/Resources/Public/vendor/jquery/jquery.min.js
+        20 = EXT:ns_theme_agency/Resources/Public/vendor/bootstrap/js/bootstrap.bundle.min.js
+        50 = EXT:ns_theme_agency/Resources/Public/vendor/jquery-easing/jquery.easing.min.js
+        60 = EXT:ns_theme_agency/Resources/Public/js/jqBootstrapValidation.js
+        80 = EXT:ns_theme_agency/Resources/Public/js/agency.min.js
+        90 = EXT:ns_theme_agency/Resources/Public/js/custom.js
     }
     
     10 = FLUIDTEMPLATE
