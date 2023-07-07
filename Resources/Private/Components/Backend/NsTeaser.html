@@ -33,7 +33,7 @@
                                 </f:if>
                                 <f:if condition="{item.container.text}">
                                     <f:format.crop maxCharacters="200">
-                                        <f:format.html>{item.container.text}</f:format.html>
+                                        <f:format.raw>{item.container.text}</f:format.raw>
                                     </f:format.crop>
                                 </f:if>
                                 <f:if condition="{item.container.twitter}">
@@ -52,7 +52,7 @@
             </f:if>
             <div style="text-align: center;">
                 <f:if condition="{flexformData.otherText}">
-                    <f:format.html>{flexformData.otherText}</f:format.html>
+                    <f:format.raw>{flexformData.otherText}</f:format.raw>
                 </f:if>
             </div>
         </div>
