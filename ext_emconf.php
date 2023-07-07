@@ -10,14 +10,13 @@
  * writing. "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array (
+$EM_CONF['ns_theme_agency'] = array (
   'title' => '[NITSAN] T3 Agency TYPO3 Template',
-  'description' => 'Agency TYPO3 template is an ultimate tool to kickstart your project, either a software development company, or a product startup or any new business. Live-Demo: https://demo.t3planet.com/?theme=t3t-agency PRO version: https://t3planet.com/t3-agency-free-business-typo3-template',
+  'description' => 'Agency TYPO3 template is the ultimate tool to kickstart your project, either a software development company or a product startup or any new business. Live-Demo: https://demo.t3planet.com/?theme=t3t-agency PRO version: https://t3planet.com/t3-agency-free-business-typo3-template',
   'category' => 'templates',
   'version' => '12.0.0',
   'state' => 'stable',
   'uploadfolder' => false,
-  'clearcacheonload' => false,
   'author' => 'Team NITSAN',
   'author_email' => 'info@nitsan.in',
   'author_company' => 'NITSAN Technologies Pvt Ltd',
