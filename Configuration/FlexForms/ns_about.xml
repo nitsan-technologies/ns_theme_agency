@@ -2,38 +2,38 @@
     <sheets>
         <sDEF>
             <ROOT>
-                <TCEforms>
+                
                     <sheetTitle>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.fields</sheetTitle>
-                </TCEforms>
+                
                 <type>array</type>
                 <el>
                     <headline>
-                        <TCEforms>
+                        
                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.headline</label>
                             <config>
                                 <type>input</type>
                                 <size>30</size>
                                 <eval>trim</eval>
                             </config>
-                        </TCEforms>
+                        
                     </headline>
                     <subHeadline>
-                        <TCEforms>
+                        
                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.subheadline</label>
                             <config>
                                 <type>input</type>
                                 <size>30</size>
                                 <eval>trim</eval>
                             </config>
-                        </TCEforms>
+                        
                     </subHeadline>
                     <check>
-                        <TCEforms>
+                        
                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:grid.bgcheck</label>
                             <config>
                                 <type>check</type>
                             </config>
-                        </TCEforms>
+                        
                     </check>
                     <gallery>
                         <title>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:gallery.title</title>
@@ -45,49 +45,42 @@
                                 <title>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.addnew</title>
                                 <el>
                                     <image>
-                                        <TCEforms>
+                                        
                                             <label>
                                                 LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.image
                                             </label>
                                             <config>
-                                                <type>group</type>
-                                                <internal_type>db</internal_type>
-                                                <appearance>
-                                                    <elementBrowserType>file</elementBrowserType>
-                                                    <elementBrowserAllowed>
-                                                        gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg
-                                                    </elementBrowserAllowed>
-                                                </appearance>
-                                                <allowed>sys_file</allowed>
-                                                <size>1</size>
-                                                <minitems>1</minitems>
+                                                <type>link</type>
+                                                <allowedTypes>
+                                                    <numIndex index="0">file</numIndex>
+                                                </allowedTypes>
+                                                <minitems>0</minitems>
                                                 <maxitems>1</maxitems>
-                                                <show_thumbs>1</show_thumbs>
                                             </config>
-                                        </TCEforms>
+                                        
                                     </image>
                                     <title>
-                                        <TCEforms>
+                                        
                                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.title</label>
                                             <config>
                                                 <type>input</type>
                                                 <size>30</size>
                                                 <eval>trim,required</eval>
                                             </config>
-                                        </TCEforms>
+                                        
                                     </title>
                                     <subtitle>
-                                        <TCEforms>
+                                        
                                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.subtitle</label>
                                             <config>
                                                 <type>input</type>
                                                 <size>30</size>
                                                 <eval>trim</eval>
                                             </config>
-                                        </TCEforms>
+                                        
                                     </subtitle>
                                     <text>
-                                        <TCEforms>
+                                        
                                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.text</label>
                                             <config>
                                                 <type>text</type>
@@ -97,14 +90,14 @@
                                                 <enableRichtext>1</enableRichtext>
                                                 <richtextConfiguration>default</richtextConfiguration>
                                             </config>
-                                        </TCEforms>
+                                        
                                     </text>
                                 </el>
                             </container>
                         </el>
                     </gallery>
                     <text>
-                        <TCEforms>
+                        
                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.bottomtext</label>
                             <config>
                                 <type>text</type>
@@ -114,7 +107,7 @@
                                 <enableRichtext>1</enableRichtext>
                                 <richtextConfiguration>default</richtextConfiguration>
                             </config>
-                        </TCEforms>
+                        
                     </text>
                 </el>
             </ROOT>
