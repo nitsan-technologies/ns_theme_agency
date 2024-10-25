@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "require": {
-    "typo3/cms-core": "^13.0",
+    "typo3/cms-core": "^12 || ^13",
     "nitsan/ns-basetheme": "^12.0 || ^13.0"
   },
   "replace": {
