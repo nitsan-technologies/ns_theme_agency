@@ -14,7 +14,7 @@ $EM_CONF['ns_theme_agency'] = array (
   'title' => '[NITSAN] T3 Agency TYPO3 Template',
   'description' => 'Agency TYPO3 template is the ultimate tool to kickstart your project, either a software development company or a product startup or any new business. Live-Demo: https://demo.t3planet.com/?theme=t3t-agency PRO version: https://t3planet.com/t3-agency-free-business-typo3-template',
   'category' => 'templates',
-  'version' => '13.0.1',
+  'version' => '13.0.2',
   'state' => 'stable',
   'uploadfolder' => false,
   'author' => 'Team NITSAN',
@@ -24,7 +24,7 @@ $EM_CONF['ns_theme_agency'] = array (
   array (
     'depends' => 
     array (
-      'typo3' => '13.0.0-13.4.99',
+      'typo3' => '12.0.0-13.4.99',
       'ns_basetheme' => '12.0.0-12.5.99',
     ),
     'conflicts' => 
