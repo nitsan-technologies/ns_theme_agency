@@ -2,13 +2,13 @@
     <sheets>
         <sDEF>
             <ROOT>
-                
+                <TCEforms>
                     <sheetTitle>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.fields</sheetTitle>
-                
+                </TCEforms>
                 <type>array</type>
                 <el>
                     <image>
-                        
+                        <TCEforms>
                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.bgimage</label>
                             <config>
                                 <type>inline</type>
@@ -79,47 +79,47 @@
                                     </types>
                                 </overrideChildTca>
                             </config>
-                        
+                        </TCEforms>
                     </image>
                     <title>
-                        
+                        <TCEforms>
                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.title</label>
                             <config>
                                 <type>input</type>
                                 <size>30</size>
                                 <eval>trim,required</eval>
                             </config>
-                        
+                        </TCEforms>
                     </title>
                     <subtitle>
-                        
+                        <TCEforms>
                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.subtitle</label>
                             <config>
                                 <type>input</type>
                                 <size>30</size>
                                 <eval>trim</eval>
                             </config>
-                        
+                        </TCEforms>
                     </subtitle>
                     <btntext>
-                        
+                        <TCEforms>
                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.btntext</label>
                             <config>
                                 <type>input</type>
                                 <size>30</size>
                                 <eval>trim</eval>
                             </config>
-                        
+                        </TCEforms>
                     </btntext>
                     <scrollid>
-                        
+                        <TCEforms>
                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.scrollid</label>
                             <config>
                                 <type>input</type>
                                 <size>30</size>
                                 <eval>trim,alphanum,lower,nospace</eval>
                             </config>
-                        
+                        </TCEforms>
                     </scrollid>
                 </el>
             </ROOT>
