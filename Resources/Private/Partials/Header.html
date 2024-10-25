@@ -40,10 +40,11 @@
             <f:else>
                 <li
                     class="nav-item menu-{data.uid} {f:if(condition: item.children, then:' has-sub-menu')}">
-                    <a href="./#{f:format.case(mode: 'lower', value: '{item.title}')}"
+                    <f:variable name="menuTitle"><f:replace value="{item.title}" search=" " replace="-" /></f:variable>                 
+                    <a href="./#{f:format.case(mode: 'lower', value: '{menuTitle}')}"
                         class="nav-link js-scroll-trigger" id="nav-item-{item.data.uid}"
-                        data-hash="#{f:format.case(mode: 'lower', value: '{item.title}')}" {f:if(condition: item.target,
-                        then: ' target="{item.target}"' )} title="{item.title}" {f:if(condition: item.children, then:'
+                        data-hash="#{f:format.case(mode: 'lower', value: '{menuTitle}')}" {f:if(condition: item.target,
+                        then: ' target="{item.target}"' )} title="{menuTitle}" {f:if(condition: item.children, then:'
                         aria-haspopup="true" aria-expanded="false"')}>
                                 {item.title}<f:if condition="{item.current}"> <span class="sr-only">(current)</span></f:if>
                             </a>
