@@ -14,7 +14,7 @@ $EM_CONF[$_EXTKEY] = array (
   'title' => '[NITSAN] T3 Agency TYPO3 Template',
   'description' => 'Agency TYPO3 template is the ultimate tool to kickstart your project, either a software development company or a product startup or any new business. Live-Demo: https://demo.t3planet.com/?theme=t3t-agency PRO version: https://t3planet.com/t3-agency-free-business-typo3-template',
   'category' => 'templates',
-  'version' => '12.0.0',
+  'version' => '12.0.1',
   'state' => 'stable',
   'uploadfolder' => false,
   'clearcacheonload' => false,
