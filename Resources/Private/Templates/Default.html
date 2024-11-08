@@ -3,5 +3,8 @@
 <f:section name="main">
 	<!-- Render main content colpost=0 -->
 	<f:cObject typoscriptObjectPath="lib.content"/>
-	<f:cObject typoscriptObjectPath="lib.scrolling"/>
+	
+	<f:if condition="{settings.onePageMenu}">
+		<f:cObject typoscriptObjectPath="lib.scrolling"/>
+	</f:if>
 </f:section>

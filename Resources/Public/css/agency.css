@@ -185,7 +185,8 @@ a {
 }
 
 a:hover {
-  color: #fec503;
+  color: #ff8800;
+  text-decoration: none;
 }
 
 .text-primary {

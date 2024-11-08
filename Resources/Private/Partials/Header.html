@@ -29,49 +29,80 @@
 </nav>
 
 <f:section name="MainMenu">
-    <f:if condition="{MainMenu}">
-        <ul class="navbar-nav text-uppercase ml-auto">
-            <f:for each="{MainMenu}" as="item">
-                <f:if condition="{item.spacer}">
-                    <f:then>
+<f:if condition="{settings.onePageMenu}">
+    <f:then>
+        <f:if condition="{MainMenu}">
+            <ul class="onepage-menu navbar-nav text-uppercase ml-auto">
+                <f:for each="{MainMenu}" as="item">
+                    <f:if condition="{item.spacer}">
+                        <f:then>
+            </ul>
+            <ul>
+                </f:then>
+                <f:else>
+                    <li class="nav-item menu-{data.uid} {f:if(condition: item.children, then:' has-sub-menu')}">
+                        <f:variable name="menuTitle"><f:replace value="{item.title}" search=" " replace="-" /></f:variable>
+                        <a href="./#{f:format.case(mode: 'lower', value: '{menuTitle}')}" class="nav-link js-scroll-trigger"
+                            id="nav-item-{item.data.uid}" data-hash="#{f:format.case(mode: 'lower', value: '{menuTitle}')}"
+                            {f:if(condition: item.target, then: ' target="{item.target}"' )} title="{menuTitle}"
+                            {f:if(condition: item.children, then:' aria-haspopup="true" aria-expanded="false"')}>
+                                    {item.title}<f:if condition="{item.current}"> <span class="sr-only">(current)</span></f:if>
+                                </a>
+        </li>
+        </f:else>
+        </f:if>
+        </f:for>
         </ul>
-        <ul>
-            </f:then>
-            <f:else>
-                <li
-                    class="nav-item menu-{data.uid} {f:if(condition: item.children, then:' has-sub-menu')}">
-                    <f:variable name="menuTitle"><f:replace value="{item.title}" search=" " replace="-" /></f:variable>                 
-                    <a href="./#{f:format.case(mode: 'lower', value: '{menuTitle}')}"
-                        class="nav-link js-scroll-trigger" id="nav-item-{item.data.uid}"
-                        data-hash="#{f:format.case(mode: 'lower', value: '{menuTitle}')}" {f:if(condition: item.target,
-                        then: ' target="{item.target}"' )} title="{menuTitle}" {f:if(condition: item.children, then:'
-                        aria-haspopup="true" aria-expanded="false"')}>
-                                {item.title}<f:if condition="{item.current}"> <span class="sr-only">(current)</span></f:if>
-                            </a>
-                            <f:if condition="{item.children}">
-                                <ul class="sub-menu-list" aria-labelledby="nav-item-{item.data.uid}">
-                                    <f:for each="{item.children}" as="child">
-                                        <f:if condition="{child.spacer}">
-                                            <f:then>
-                                                <li class="dropdown-divider"></li>
-                                            </f:then>
-                                            <f:else>
-                                                <li>
-                                                    <a href="{child.link}" class="{f:if(condition: child.active, then:'
-                        active')}"{f:if(condition: child.target, then: ' target="{child.target}"' )}
-                        title="{child.title}">
-                        {child.title}<f:if condition="{child.current}"> <span class="sr-only">(current)</span></f:if>
-                    </a>
-                </li>
-            </f:else>
-    </f:if>
-    </f:for>
-    </ul>
-    </f:if>
-    </li>
-    </f:else>
-    </f:if>
-    </f:for>
-    </ul>
+        </f:if>
+    </f:then>
+    <f:else>
+        <f:if condition="{MainMenu}">
+            <ul class="navigation-menu navbar-nav ml-auto">
+                <f:for each="{MainMenu}" as="item">
+                    <f:if condition="{item.spacer}">
+                        <f:then>
+            </ul>
+            <ul>
+                </f:then>
+                <f:else>
+                    <li class="nav-item {f:if(condition: item.children, then:' has-sub-menu')}">
+                        <a href="{item.link}" title="{item.title}" class="nav-link"
+                            id="nav-item-{item.data.uid}"
+                            {f:if(condition: item.target, then: ' target="{item.target}"' )} title="{item.title}"
+                            {f:if(condition: item.children, then:' aria-haspopup="true" aria-expanded="false"')}>
+                                    {item.title}<f:if condition="{item.current}"> <span class="sr-only">(current)</span></f:if><f:if condition="{item.children}"><span class="arrow-icon is-down"></span></f:if>
+                                </a>
+                                <f:if condition="{item.children}">
+                                    <ul class="sub-menu-list" aria-labelledby="nav-item-{item.data.uid}">
+                                        <f:for each="{item.children}" as="child">
+                                            <f:if condition="{child.spacer}">
+                                                <f:then>
+                                                    <li class="dropdown-divider"></li>
+                                                </f:then>
+                                                <f:else>
+                                                    <li class="sub-menu-list__item{f:if(condition: child.children, then:' has-dropdown')}">
+                                                        <a href="{child.link}" class="{f:if(condition: child.active, then:'active')}"{f:if(condition: child.target, then: ' target="{child.target}"' )} title="{child.title}">{child.title}<f:if condition="{child.current}"><span class="sr-only">(current)</span></f:if><f:if condition="{child.children}"><span class="arrow-icon is-right"></span></f:if></a>
+                                                <f:if condition="{child.children}">
+                                                    <ul class="submenu-level-3">
+                                                        <f:for each="{child.children}" as="child2">
+                                                            <li class="{f:if(condition: child2.children, then:' dropdown-submenu')}">
+                                                                <a href="{child2.link}">{child2.title}</a>
+                                                            </li>
+                                                        </f:for>
+                                                    </ul>
+                                                </f:if>
+                                    </li>
+                                </f:else>
+        </f:if>
+        </f:for>
+        </ul>
+        </f:if>
+        </li>
+        </f:else>
+        </f:if>
+        </f:for>
+        </ul>
+        </f:if>
+        </f:else>
     </f:if>
 </f:section>

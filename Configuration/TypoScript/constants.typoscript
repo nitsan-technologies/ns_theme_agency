@@ -1,8 +1,10 @@
 # Let's define some constants for global configuration
+
 ns_theme_agency {
 	website {
 		settings {
-			
+			#cat = ns_basetheme/100/06; type=boolean; label= OnePage Menu: Enable/Disable One Page Menu.
+            onePageMenu = 0
 		}
 		paths {
 			#cat = ns_theme_agency/website/settings/01; type=string; label=Template Path

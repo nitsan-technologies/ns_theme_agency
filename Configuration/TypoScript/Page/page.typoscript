@@ -13,6 +13,7 @@ plugin {
             googleanalytics = {$ns_basetheme.website.settings.googleanalytics}
             logo_width = {$ns_basetheme.website.settings.logo_width}
             logo_height = {$ns_basetheme.website.settings.logo_height}
+            onePageMenu = {$ns_theme_agency.website.settings.onePageMenu}
         }
     }
 }
