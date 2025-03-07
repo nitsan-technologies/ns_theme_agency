@@ -14,7 +14,7 @@ $EM_CONF['ns_theme_agency'] = array (
   'title' => 'T3 Agency TYPO3 Template',
   'description' => 'T3 Agency Template for TYPO3 Website, for Build your TYPO3 website for a software development company, a product startup or any new business. plus its compatible with the latest TYPO3 v12 & v13.',
   'category' => 'templates',
-  'version' => '13.0.4',
+  'version' => '13.0.5',
   'state' => 'stable',
   'uploadfolder' => false,
   'author' => 'Team NITSAN',
@@ -25,7 +25,7 @@ $EM_CONF['ns_theme_agency'] = array (
     'depends' => 
     array (
       'typo3' => '12.0.0-13.4.99',
-      'ns_basetheme' => '12.0.0-12.5.99',
+      'ns_basetheme' => '13.0.0-13.5.99',
     ),
     'conflicts' => 
     array (
