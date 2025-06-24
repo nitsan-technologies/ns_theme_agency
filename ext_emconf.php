@@ -11,15 +11,15 @@
  ***************************************************************/
 
 $EM_CONF['ns_theme_agency'] = array (
-  'title' => 'T3 Agency TYPO3 Template',
-  'description' => 'T3 Agency Template for TYPO3 Website, for Build your TYPO3 website for a software development company, a product startup or any new business. plus its compatible with the latest TYPO3 v12 & v13.',
+  'title' => 'T3 Agency – Modern TYPO3 Template',
+  'description' => 'A professional TYPO3 website template ideal for software companies, startups, and digital agencies. Fully responsive and compatible with TYPO3 v12 & v13.',
   'category' => 'templates',
   'version' => '13.0.5',
   'state' => 'stable',
   'uploadfolder' => false,
-  'author' => 'Team NITSAN',
-  'author_email' => 'info@nitsan.in',
-  'author_company' => 'NITSAN Technologies Pvt Ltd',
+  'author' => 'Team T3Planet',
+  'author_email' => 'info@t3planet.de',
+  'author_company' => 'T3Planet',
   'constraints' => 
   array (
     'depends' => 
