@@ -24,7 +24,7 @@
                                     <config>
                                         <appearance>
                                             <elementBrowserType>file</elementBrowserType>
-                                            <elementBrowserAllowed>gif,jpg,jpeg,png,svg</elementBrowserAllowed>
+                                            <elementBrowserAllowed>gif,jpg,jpeg,png,svg,webp</elementBrowserAllowed>
                                         </appearance>
                                     </config>
                                 </foreign_selector_fieldTcaOverride>
