@@ -17,9 +17,11 @@
                         <div class="col-md-4">
                             <div class="por-grid portfolio">
                                 <div class="portfolio-image">
-                                    <f:if condition="{item.image}">
-                                        <f:image src="{item.image}" width="150c" height="150c" />
-                                    </f:if>
+
+                                     <f:if condition="{item.image}">
+                    <f:variable name="imageUrl" value="{f:uri.typolink(parameter: item.image)}" />
+                    <f:image src="{imageUrl}" width="150c" height="150c" />
+                  </f:if>
                                 </div>
                                 <div class="portfolio-dec">
                                     <f:if condition="{item.title}">

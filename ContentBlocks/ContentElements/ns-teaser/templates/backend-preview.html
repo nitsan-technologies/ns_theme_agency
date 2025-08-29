@@ -18,7 +18,9 @@
                             <div class="portfolio-image teaser">
                                 <f:if condition="{item.check} == '1'">
                                     <f:then>
-                                        <f:image src="{item.image}" width="100c" height="100c" />
+                                        <f:variable name="imageUrl" value="{f:uri.typolink(parameter: item.image)}" />
+                                        <f:image src="{imageUrl}" width="100c" height="100c" />
+                                        
                                     </f:then>
                                     <f:else>
                                         <f:if condition="{item.icon}">

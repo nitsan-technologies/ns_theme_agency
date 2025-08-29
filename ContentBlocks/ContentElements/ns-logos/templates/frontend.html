@@ -2,8 +2,8 @@
     <section class="py-5 {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
         <div class="container">
             <div class="row">
-                <f:if condition="{image}">
-                    <f:for each="{image}" as="file">
+                <f:if condition="{data.image}">
+                    <f:for each="{data.image}" as="file">
                         <div class="col-md-3 col-sm-6">
                             <f:link.typolink parameter="{file.link}">
                                 <f:image image="{file}" class="img-fluid d-block mx-auto" />

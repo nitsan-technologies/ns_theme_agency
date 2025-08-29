@@ -7,8 +7,9 @@
                 <div class="col-md-12">
                     <div class="banner-module">
                         <div class="banner-image">
-                            <f:if condition="{image}">
-                                <f:for each="{image}" as="file">
+                            
+                            <f:if condition="{data.image}">
+                                <f:for each="{data.image}" as="file">
                                     <f:image image="{file}" />
                                 </f:for>
                             </f:if>

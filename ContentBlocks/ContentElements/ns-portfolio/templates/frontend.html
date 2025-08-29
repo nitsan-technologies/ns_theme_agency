@@ -22,8 +22,9 @@
                 </div>
               </div>
               <f:if condition="{item.image}">
-                <f:image src="{item.image}" class="img-fluid" alt="image" width="350c" height="263c" />
-              </f:if>
+                    <f:variable name="imageUrl" value="{f:uri.typolink(parameter: item.image)}" />
+                    <f:image src="{imageUrl}"  alt="image" width="156c" height="156c" />
+                  </f:if>
             </a>
             <div class="portfolio-caption">
               <f:if condition="{item.title}">
@@ -55,9 +56,12 @@
                     <!-- Project Details Go Here -->
                     <h2 class="text-uppercase">{item.title}</h2>
                     <p class="item-intro text-muted">{item.subtitle}</p>
+            
+
                     <f:if condition="{item.image}">
-                      <f:image src="{item.image}" class="img-fluid d-block mx-auto" alt="image" />
-                    </f:if>
+                    <f:variable name="imageUrl" value="{f:uri.typolink(parameter: item.image)}" />
+                    <f:image src="{imageUrl}" class="img-fluid d-block mx-auto" alt="image" />
+                  </f:if>
                     <f:format.html>{item.text}</f:format.html>
                     <button class="btn btn-primary" data-dismiss="modal" type="button">
                       <i class="fas fa-times"></i>

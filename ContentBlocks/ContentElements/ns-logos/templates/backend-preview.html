@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <f:if condition="{image}">
-                    <f:for each="{image}" as="file">
+                <f:if condition="{data.image}">
+                    <f:for each="{data.image}" as="file">
                         <f:media file="{file}" width="200c" height="100c" />
                     </f:for>
                 </f:if>

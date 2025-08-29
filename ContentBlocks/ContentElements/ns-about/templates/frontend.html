@@ -18,7 +18,8 @@
               <li class="{f:if(condition:'{i.isEven}',then:'timeline-inverted')}">
                 <div class="timeline-image">
                   <f:if condition="{item.image}">
-                    <f:image src="{item.image}" class="rounded-circle img-fluid" alt="image" width="156c" height="156c" />
+                    <f:variable name="imageUrl" value="{f:uri.typolink(parameter: item.image)}" />
+                    <f:image src="{imageUrl}" class="rounded-circle img-fluid" alt="image" width="156c" height="156c" />
                   </f:if>
                 </div>
                 <div class="timeline-panel">
