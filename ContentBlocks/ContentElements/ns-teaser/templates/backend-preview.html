@@ -1,0 +1,62 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="ns-backend-preview">
+    <h2><b><f:translate key="LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:wizard.ns_teaser" /></b></h2>
+    <header>
+        <div class="row">
+            <div style="text-align: center;">
+                <f:if condition="{data.headline}">
+                    <h3><b>{data.headline}</b></h3>
+                </f:if>
+                <f:if condition="{data.subHeadline}">
+                    <h4 class="subheader">{data.subHeadline}</h4>
+                </f:if>
+            </div>
+            <f:if condition="{data.teaser_items}">
+                <f:for each="{data.teaser_items}" as="item">
+                    <div class="col-md-4">
+                        <div class="teser-grid">
+                            <div class="portfolio-image teaser">
+                                <f:if condition="{item.check} == '1'">
+                                    <f:then>
+                                        <f:image src="{item.image}" width="100c" height="100c" />
+                                    </f:then>
+                                    <f:else>
+                                        <f:if condition="{item.icon}">
+                                            <i class="fa {item.icon}"></i>
+                                        </f:if>
+                                    </f:else>
+                                </f:if>
+                            </div>
+                            <div class="portfolio-dec">
+                                <f:if condition="{item.title}">
+                                    <h3>{item.title}</h3>
+                                </f:if>
+                                <f:if condition="{item.text}">
+                                    <f:format.crop maxCharacters="200">
+                                        <f:format.raw>{item.text}</f:format.raw>
+                                    </f:format.crop>
+                                </f:if>
+                                <f:if condition="{item.twitter}">
+                                    <i class="fab fa-twitter"></i>
+                                </f:if>
+                                <f:if condition="{item.facebook}">
+                                    <i class="fab fa-facebook-f"></i>
+                                </f:if>
+                                <f:if condition="{item.linkedin}">
+                                    <i class="fab fa-linkedin"></i>
+                                </f:if>
+                            </div>
+                        </div>
+                    </div>
+                </f:for>
+            </f:if>
+            <div style="text-align: center;">
+                <f:if condition="{data.otherText}">
+                    <f:format.raw>{data.otherText}</f:format.raw>
+                </f:if>
+            </div>
+        </div>
+    </header>
+</div>
+
+</html>

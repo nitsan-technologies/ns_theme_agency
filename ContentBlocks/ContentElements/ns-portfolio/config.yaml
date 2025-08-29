@@ -1,0 +1,57 @@
+name: nitsan/ns-portfolio
+typeName: nitsan_nsportfolio
+group: t3karma_content_blocks
+prefixFields: false
+prefixType: vendor
+fields:
+  -
+    identifier: title
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.title'
+    type: Text
+  -
+    identifier: subtitle
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.subtitle'
+    type: Text
+  -
+    identifier: check
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:grid.bgcheck'
+    type: Checkbox
+  -
+    identifier: portfolio
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:portfolio.title'
+    type: Collection
+    fields:
+      -
+        identifier: image
+        label: 'LLL:EXT:ns_theme_freelancer/Resources/Private/Language/locallang_flex.xlf:general.image'
+        type: Link
+        allowed:
+          - file
+        maxitems: 1
+      -
+        identifier: title
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.title'
+        type: Text
+        required: true
+      -
+        identifier: subtitle
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.subtitle'
+        type: Text
+      -
+        identifier: text
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.text'
+        type: Textarea
+        rows: 5
+        enableRichtext: true
+  -
+    identifier: appearance_tab
+    type: Tab
+    label: Appearance
+  -
+    identifier: space_before_class
+    type: Text
+    useExistingField: true
+  -
+    identifier: space_after_class
+    type: Text
+    useExistingField: true

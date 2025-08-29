@@ -1,0 +1,30 @@
+name: nitsan/ns-logos
+typeName: nitsan_nslogos
+group: t3karma_content_blocks
+prefixFields: false
+prefixType: vendor
+fields:
+  -
+    identifier: image
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.bgimage'
+    type: File
+    allowed:
+      - jpg
+      - png
+      - svg
+      - jpeg
+      - gif
+    minitems: 1
+    maxitems: 99
+  -
+    identifier: appearance_tab
+    type: Tab
+    label: Appearance
+  -
+    identifier: space_before_class
+    type: Text
+    useExistingField: true
+  -
+    identifier: space_after_class
+    type: Text
+    useExistingField: true

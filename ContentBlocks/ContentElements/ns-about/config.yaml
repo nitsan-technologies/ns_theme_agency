@@ -1,0 +1,63 @@
+name: nitsan/ns-about
+typeName: nitsan_nsabout
+group: t3karma_content_blocks
+prefixFields: false
+prefixType: vendor
+fields:
+  -
+    identifier: headline
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.headline'
+    type: Text
+  -
+    identifier: subHeadline
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.subheadline'
+    type: Text
+  -
+    identifier: check
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:grid.bgcheck'
+    type: Checkbox
+  -
+    identifier: gallery
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:gallery.title'
+    type: Collection
+    fields:
+      -
+        identifier: image
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.image'
+        type: Link
+        allowed:
+          - file
+        maxitems: 1
+      -
+        identifier: title
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.title'
+        type: Text
+        required: true
+      -
+        identifier: subtitle
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.subtitle'
+        type: Text
+      -
+        identifier: text
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.text'
+        type: Textarea
+        rows: 5
+        enableRichtext: true
+  -
+    identifier: text
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.bottomtext'
+    type: Textarea
+    rows: 5
+    enableRichtext: true
+  -
+    identifier: appearance_tab
+    type: Tab
+    label: Appearance
+  -
+    identifier: space_before_class
+    type: Text
+    useExistingField: true
+  -
+    identifier: space_after_class
+    type: Text
+    useExistingField: true

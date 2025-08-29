@@ -1,0 +1,97 @@
+name: nitsan/ns-teaser
+typeName: nitsan_nsteaser
+group: t3karma_content_blocks
+prefixFields: false
+prefixType: vendor
+fields:
+  -
+    identifier: headline
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.headline'
+    type: Text
+  -
+    identifier: subHeadline
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.subheadline'
+    type: Text
+  -
+    identifier: check
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:grid.bgcheck'
+    type: Checkbox
+  -
+    identifier: teaser_items
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:gallery.title'
+    type: Collection
+    fields:
+      -
+        identifier: check
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:teaser.check'
+        type: Checkbox
+        onChange: reload
+      -
+        identifier: image
+        label: 'LLL:EXT:ns_theme_freelancer/Resources/Private/Language/locallang_flex.xlf:general.image'
+        type: Link
+        allowed:
+          - file
+        maxitems: 1
+      -
+        identifier: icon
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.icon'
+        type: Select
+        displayCond:
+          AND:
+            - 'FIELD:check:!=:1'
+        size: 1
+        renderType: selectSingle
+        items:
+          -
+            label: 'Shopping Cart'
+            value: fa-shopping-cart
+          -
+            label: Laptop
+            value: fa-laptop
+          -
+            label: Lock
+            value: fa-lock
+        minitems: 1
+        maxitems: 1
+      -
+        identifier: title
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.title'
+        type: Text
+        required: true
+      -
+        identifier: text
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.text'
+        type: Textarea
+        rows: 5
+        enableRichtext: true
+      -
+        identifier: twitter
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.twitter'
+        type: Text
+      -
+        identifier: facebook
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.facebook'
+        type: Text
+      -
+        identifier: linkedin
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.linkedin'
+        type: Text
+  -
+    identifier: otherText
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.text'
+    type: Textarea
+    rows: 5
+    enableRichtext: true
+  -
+    identifier: appearance_tab
+    type: Tab
+    label: Appearance
+  -
+    identifier: space_before_class
+    type: Text
+    useExistingField: true
+  -
+    identifier: space_after_class
+    type: Text
+    useExistingField: true
