@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  NITSAN\NsThemeAgency\Updates\ContentBlockMigration:
+    tags:
+      - name: 'install.upgrade.wizard'
+
+  NITSAN\NsThemeAgency\Service\ContentBlockMigration:    
+    public: true
+    
+  NITSAN\NsThemeAgency\Domain\Repository\ContentBlocksRepository:
+    public: true
