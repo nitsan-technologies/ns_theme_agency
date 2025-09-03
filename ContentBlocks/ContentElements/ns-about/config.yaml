@@ -1,6 +1,6 @@
 name: nitsan/ns-about
 typeName: nitsan_nsabout
-group: t3karma_content_blocks
+group: t3themeagency_content_blocks
 prefixFields: false
 prefixType: vendor
 fields:
