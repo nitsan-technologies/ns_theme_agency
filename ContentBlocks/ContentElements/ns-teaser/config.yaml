@@ -28,7 +28,7 @@ fields:
         onChange: reload
       -
         identifier: image
-        label: 'LLL:EXT:ns_theme_freelancer/Resources/Private/Language/locallang_flex.xlf:general.image'
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.image'
         type: Link
         allowed:
           - file
@@ -64,19 +64,25 @@ fields:
         label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.text'
         type: Textarea
         rows: 5
-        enableRichtext: true
+        enableRichtext: true      
       -
-        identifier: twitter
-        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.twitter'
-        type: Text
-      -
-        identifier: facebook
-        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.facebook'
-        type: Text
-      -
-        identifier: linkedin
-        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.linkedin'
-        type: Text
+        identifier: social_media
+        label: 'Social Media'
+        description: Links show if team element checkbox is enabled.
+        type: Palette
+        fields:
+          -
+            identifier: twitter
+            label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.twitter'
+            type: Text
+          -
+            identifier: facebook
+            label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.facebook'
+            type: Text          
+          -
+            identifier: linkedin
+            label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.linkedin'
+            type: Text
   -
     identifier: otherText
     label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.text'

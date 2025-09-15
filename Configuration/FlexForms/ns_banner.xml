@@ -8,7 +8,6 @@
                 <type>array</type>
                 <el>
                     <image>
-                        
                             <label>LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.bgimage</label>
                             <config>
                                 <type>inline</type>

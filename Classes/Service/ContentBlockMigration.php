@@ -331,15 +331,13 @@ class ContentBlockMigration
 
 private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, int $langUid): void
 {
-    // Update tt_content base data
+   
     $data = [
         'CType'              => $cType,
         'headline'           => $parsed['headline'] ?? '',
         'subHeadline'        => $parsed['subHeadline'] ?? '',
         'check'              => (int)($parsed['check'] ?? 0),
         'text'               => $parsed['text'] ?? '',
-        'space_before_class' => $parsed['space_before_class'] ?? '',
-        'space_after_class'  => $parsed['space_after_class'] ?? '',
         'sys_language_uid'   => $langUid,
         'pid'                => $pid,
     ];
@@ -392,8 +390,6 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
             'subtitle'           => $parsed['subtitle'] ?? '',
             'btntext'            => $parsed['btntext'] ?? '',
             'scrollid'           => $parsed['scrollid'] ?? '',
-            'space_before_class' => $parsed['space_before_class'] ?? '',
-            'space_after_class'  => $parsed['space_after_class'] ?? '',
             'sys_language_uid'   => $langUid,
             'pid'                => $pid,
         ];
@@ -409,8 +405,7 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
             'CType'              => $cType,
             'title'              => $parsed['title'] ?? '',
             'subtitle'           => $parsed['subtitle'] ?? '',
-            'space_before_class' => $parsed['space_before_class'] ?? '',
-            'space_after_class'  => $parsed['space_after_class'] ?? '',
+           
             'sys_language_uid'   => $langUid,
             'pid'                => $pid,
         ];
@@ -453,8 +448,6 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
             'title'              => $parsed['title'] ?? '',
             'subtitle'           => $parsed['subtitle'] ?? '',
             'check'              => (int) ($parsed['check'] ?? 0),
-            'space_before_class' => $parsed['space_before_class'] ?? '',
-            'space_after_class'  => $parsed['space_after_class'] ?? '',
             'sys_language_uid'   => $langUid,
             'pid'                => $pid,
         ];
@@ -495,8 +488,6 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
         'subHeadline'        => $parsed['subHeadline'] ?? '',
         'check'              => (int)($parsed['check'] ?? 0),
         'otherText'          => $parsed['otherText'] ?? '',
-        'space_before_class' => $parsed['space_before_class'] ?? '',
-        'space_after_class'  => $parsed['space_after_class'] ?? '',
         'sys_language_uid'   => $langUid,
         'pid'                => $pid,
     ];

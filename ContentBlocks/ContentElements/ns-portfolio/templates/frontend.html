@@ -1,4 +1,4 @@
-<div class="portfolio-section">
+<div class="portfolio-section" id="c{data.uid}">
   <div class="{f:if(condition: '{data.check}==1', then: 'bg-light')} portfolio">
     <div
       class="container {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
@@ -22,9 +22,12 @@
                 </div>
               </div>
               <f:if condition="{item.image}">
-                    <f:variable name="imageUrl" value="{f:uri.typolink(parameter: item.image)}" />
-                    <f:image src="{imageUrl}"  alt="image" width="350c" height="263c" />
-                  </f:if>
+                <f:variable name="fileUrl" value="{f:uri.typolink(parameter: item.image) -> f:format.raw()}" />
+                <f:if condition="{fileUrl}">
+                  <img src="{fileUrl}" style="width:350px; height:263px; object-fit:cover;" alt="portfolio image" />
+                </f:if>
+              </f:if>
+
             </a>
             <div class="portfolio-caption">
               <f:if condition="{item.title}">
@@ -56,12 +59,12 @@
                     <!-- Project Details Go Here -->
                     <h2 class="text-uppercase">{item.title}</h2>
                     <p class="item-intro text-muted">{item.subtitle}</p>
-            
-
                     <f:if condition="{item.image}">
-                    <f:variable name="imageUrl" value="{f:uri.typolink(parameter: item.image)}" />
-                    <f:image src="{imageUrl}" class="img-fluid d-block mx-auto" alt="image" />
-                  </f:if>
+                      <f:variable name="fileUrl" value="{f:uri.typolink(parameter: item.image) -> f:format.raw()}" />
+                      <f:if condition="{fileUrl}">
+                        <img src="{fileUrl}" class="img-fluid d-block mx-auto" alt="image" />
+                      </f:if>
+                    </f:if>
                     <f:format.html>{item.text}</f:format.html>
                     <button class="btn btn-primary" data-dismiss="modal" type="button">
                       <i class="fas fa-times"></i>

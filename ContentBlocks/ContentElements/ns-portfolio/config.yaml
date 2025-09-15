@@ -18,12 +18,12 @@ fields:
     type: Checkbox
   -
     identifier: portfolio
-    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:portfolio.title'
+    label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.items.title'
     type: Collection
     fields:
       -
         identifier: image
-        label: 'LLL:EXT:ns_theme_freelancer/Resources/Private/Language/locallang_flex.xlf:general.image'
+        label: 'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_flex.xlf:general.image'
         type: Link
         allowed:
           - file

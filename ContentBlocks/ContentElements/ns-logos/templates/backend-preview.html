@@ -5,8 +5,10 @@
         <div class="row">
             <div class="col-md-12">
                 <f:if condition="{data.image}">
-                    <f:for each="{data.image}" as="file">
-                        <f:media file="{file}" width="200c" height="100c" />
+                    <f:for each="{data.image}" as="file" iteration="i">
+                        <f:if condition="{i.cycle} < 6">
+                            <f:media file="{file}" width="200c" height="100c" />
+                        </f:if>
                     </f:for>
                 </f:if>
             </div>

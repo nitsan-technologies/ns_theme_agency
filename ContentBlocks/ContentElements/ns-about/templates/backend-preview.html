@@ -16,29 +16,34 @@
             </div>
             <f:if condition="{data.gallery}">
                 <ul class="timeline">
-                    <f:for each="{data.gallery}" as="item">
-                        <li>
-                            <div class="portfolio-grid">
-                                <div class="portfolio-image team">
-                                    <f:if condition="{item.image}">
-                                        <f:variable name="imageUrl" value="{f:uri.typolink(parameter: item.image)}" />
-                                        <f:image src="{imageUrl}" width="150c" height="150c" />
-                                    </f:if>
-
+                    <f:for each="{data.gallery}" as="item" iteration="i">
+                        <f:if condition="{i.cycle} < 3">
+                            <li>
+                                <div class="portfolio-grid">
+                                    <div class="portfolio-image team">
+                                        <f:if condition="{item.image}">
+                                            <f:variable name="imageUrl" value="{f:uri.typolink(parameter: item.image)}" />
+                                            <f:if condition="{imageUrl}">
+                                                <img src="{imageUrl}" class="img-fluid" alt="{item.title}" style="max-height: 120px; max-width: 120px; object-fit: cover;" />
+                                            </f:if>
+                                        </f:if>
+                                    </div>
+                                    <div class="portfolio-dec">
+                                        <f:if condition="{item.title}">
+                                            <h3>{item.title}</h3>
+                                        </f:if>
+                                        <f:if condition="{item.subtitle}">
+                                            <h4>{item.subtitle}</h4>
+                                        </f:if>
+                                        <f:if condition="{item.text}">
+                                            <f:format.crop maxCharacters="150" append="...">
+                                                <f:format.raw>{item.text}</f:format.raw>
+                                            </f:format.crop>
+                                        </f:if>
+                                    </div>
                                 </div>
-                                <div class="portfolio-dec">
-                                    <f:if condition="{item.title}">
-                                        <h3>{item.title}</h3>
-                                    </f:if>
-                                    <f:if condition="{item.subtitle}">
-                                        <h4>{item.subtitle}</h4>
-                                    </f:if>
-                                    <f:if condition="{item.text}">
-                                        <f:format.raw>{item.text}</f:format.raw>
-                                    </f:if>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        </f:if>
                     </f:for>
                 </ul>
             </f:if>

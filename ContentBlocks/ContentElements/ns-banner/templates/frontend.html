@@ -1,6 +1,6 @@
 <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
     <f:variable name="bgImage" value="{f:uri.image(image:'{data.image.0}',maxWidth:'2000')}" />
-    <header class="masthead {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}"
+    <header id="c{data.uid}" class="masthead {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}"
         id="home" style="background-image: url({bgImage})">
         <div class="container">
             <div class="intro-text">

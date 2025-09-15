@@ -9,6 +9,3 @@
 
 # Includes Page Configuration
 @import "EXT:ns_theme_agency/Configuration/TypoScript/Page"
-
-
-

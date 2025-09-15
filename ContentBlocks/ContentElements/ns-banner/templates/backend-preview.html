@@ -2,18 +2,17 @@
 <div class="ns-backend-preview">
     <h2><b> <f:translate key="LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:wizard.ns_banner" /></b></h2>
     <header>
+        <f:if condition="{data.image}">
+            <f:for each="{data.image}" as="file" iteration="iter">
+                <f:if condition="{iter.isFirst}">
+                    <f:variable name="bgImage" value="{f:uri.image(image: file)}" />
+                </f:if>
+            </f:for>
+        </f:if>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="banner-module">
-                        <div class="banner-image">
-                            
-                            <f:if condition="{data.image}">
-                                <f:for each="{data.image}" as="file">
-                                    <f:image image="{file}" />
-                                </f:for>
-                            </f:if>
-                        </div>
+                    <div class="banner-module position-relative" style="background-image: url('{bgImage}'); background-repeat: no-repeat; background-size: cover; min-height: 250px; max-height: 250px;">                        
                         <div class="banner-dec">
                             <div class="banner-details">
                                 <f:if condition="{data.title}">

@@ -1,6 +1,8 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <div class="ns-backend-preview">
-    <h2><b><f:translate key="LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:wizard.ns_teaser" /></b></h2>
+    <h2><b>
+            <f:translate key="LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:wizard.ns_teaser" />
+        </b></h2>
     <header>
         <div class="row">
             <div style="text-align: center;">
@@ -18,9 +20,10 @@
                             <div class="portfolio-image teaser">
                                 <f:if condition="{item.check} == '1'">
                                     <f:then>
-                                        <f:variable name="imageUrl" value="{f:uri.typolink(parameter: item.image)}" />
-                                        <f:image src="{imageUrl}" width="100c" height="100c" />
-                                        
+                                        <f:variable name="fileUrl"
+                                            value="{f:uri.typolink(parameter: item.image) -> f:format.raw()}" />
+                                        <img src="{fileUrl}" style="width:100px; height:100px; object-fit:cover;"
+                                            alt="image" />
                                     </f:then>
                                     <f:else>
                                         <f:if condition="{item.icon}">

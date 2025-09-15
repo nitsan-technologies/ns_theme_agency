@@ -1,6 +1,9 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <div class="ns-backend-preview">
-    <h2><b><f:translate key="LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:wizard.ns_portfolio" /></b></h2>
+    <h2><b>
+            <f:translate
+                key="LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:wizard.ns_portfolio" />
+        </b></h2>
     <header>
         <div class="row">
             <div style="text-align: center;">
@@ -18,10 +21,11 @@
                             <div class="por-grid portfolio">
                                 <div class="portfolio-image">
 
-                                     <f:if condition="{item.image}">
-                    <f:variable name="imageUrl" value="{f:uri.typolink(parameter: item.image)}" />
-                    <f:image src="{imageUrl}" width="150c" height="150c" />
-                  </f:if>
+                                    <f:if condition="{item.image}">
+                                        <f:variable name="fileUrl"
+                                            value="{f:uri.typolink(parameter: item.image) -> f:format.raw()}" />
+                                        <img src="{fileUrl}" style="width:150px; height:150px; object-fit:cover;"  alt="portfolio image" />
+                                    </f:if>
                                 </div>
                                 <div class="portfolio-dec">
                                     <f:if condition="{item.title}">
