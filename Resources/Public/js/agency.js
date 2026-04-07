@@ -6,8 +6,21 @@
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      var hash = this.hash;
+      if (!hash || hash.length < 2) {
+        return;
+      }
+      var id;
+      try {
+        id = decodeURIComponent(hash.slice(1));
+      } catch (e) {
+        id = hash.slice(1);
+      }
+      var el = document.getElementById(id);
+      if (!el) {
+        el = document.querySelector('[name="' + id.replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"]');
+      }
+      var target = el ? $(el) : $();
       if (target.length) {
         $('html, body').animate({
           scrollTop: (target.offset().top - 54)
