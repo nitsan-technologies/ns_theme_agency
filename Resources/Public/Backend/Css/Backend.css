@@ -150,6 +150,10 @@
   object-fit: cover;
 }
 
+.banner-module {
+  position: relative;
+}
+
 .banner-dec {
   position: absolute;
   top: 0;
@@ -161,6 +165,7 @@
   height: 100%;
   width: 100%;
   text-align: center;
+  pointer-events: none;
 }
 
 .banner-details .btn {
