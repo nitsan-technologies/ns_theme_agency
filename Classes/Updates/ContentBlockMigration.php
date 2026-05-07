@@ -3,13 +3,12 @@ declare(strict_types=1);
 
 namespace NITSAN\NsThemeAgency\Updates;
 
+use TYPO3\CMS\Core\Attribute\UpgradeWizard;
+use TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface;
 use TYPO3\CMS\Core\Database\Connection;
-use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Install\Attribute\UpgradeWizard;
-use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
-use NITSAN\NsThemeAgency\Service\ContentBlockMigration as MigrationService;
-
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use NITSAN\NsThemeFreelancer\Service\ContentBlockMigration as MigrationService;
 
 #[UpgradeWizard('t3agency_content_block_migration')]
 final class ContentBlockMigration implements UpgradeWizardInterface

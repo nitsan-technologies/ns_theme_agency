@@ -24,8 +24,9 @@ $EM_CONF['ns_theme_agency'] = array (
   array (
     'depends' => 
     array (
-      'typo3' => '12.0.0-13.4.99',
+      'typo3' => '12.0.0-14.9.99',
       'ns_basetheme' => '13.0.0-13.5.99',
+      'news' => '13.0.0-14.9.99',
     ),
     'conflicts' => 
     array (
