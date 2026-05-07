@@ -23,9 +23,10 @@
   },
   "license": "MIT",
   "require": {
-    "typo3/cms-core": "^12 || ^13 || ^14",
-    "nitsan/ns-basetheme": "^12.0 || ^13.0",
-    "georgringer/news" : "^13.0 || ^14.0"
+    "typo3/cms-core": "^14.0",
+    "nitsan/ns-basetheme": "^14.0",
+    "georgringer/news" : "^14.0",
+    "friendsoftypo3/content-blocks" : "^14.0"
   },
   "replace": {
       "typo3-ter/ns-theme-agency": "self.version"
