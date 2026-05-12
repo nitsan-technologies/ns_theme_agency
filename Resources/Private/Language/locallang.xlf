@@ -15,6 +15,9 @@
             <trans-unit id="close">
                 <source>Close Project</source>
             </trans-unit>
+            <trans-unit id="contentBlocks.Block">
+                <source>Content Block</source>
+            </trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file datatype="plaintext" original="labels.xlf" source-language="en" date="2025-08-28T14:00:55+00:00" product-name="nitsan/ns-portfolio">
+		<header/>
+		<body>
+			<trans-unit id="title">
+				<source>Portfolio</source>
+			</trans-unit>
+			<trans-unit id="description">
+				<source>Portfolio section with modelbox.</source>
+			</trans-unit>
+			<trans-unit id="tabs.appearance_tab">
+				<source>Appearance</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

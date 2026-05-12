@@ -9,9 +9,16 @@ imports:
 editor:
   config:
     contentsCss: "EXT:ns_basetheme/Resources/Public/css/RTE/bootstrap4-rte.min.css"
-    stylesSet:
-      - { name: "Lead", element: "p", attributes: {'class': 'lead'} }
+    style:
+      definitions:
+        - { name: "Background Dark Span", element: "a", attributes: {'class': 'btn btn-outline btn-xl js-scroll-trigger'} }
+        - { name: "Section Heading", element: "h2", attributes: {'class': 'section-heading'} }
+        - { name: "Large Font", element: "h2", attributes: {'class': 'large-font'} }
+        - { name: "Text muted", element: "p", attributes: {'class': 'text-muted'} }
+        - { name: "Button", element: "a", attributes: {'class': 'btn'} }
+
     format_tags: "p;h1;h2;h3;h4;h5;h6;pre"
+    
     toolbarGroups:
       - { name: clipboard, groups: [clipboard, undo] }
       - { name: editing, groups: [find, selection, spellchecker] }
@@ -73,4 +80,4 @@ buttons:
   link:
     properties:
       class:
-        allowedClasses: 'link-arrow, link-page, link-folder, link-file, link-external, link-mail'
+        allowedClasses: 'right-arrow, link-page, link-folder, link-file, link-external, link-mail'

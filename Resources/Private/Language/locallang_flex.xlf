@@ -27,6 +27,9 @@
             <trans-unit id="general.bgimage">
                 <source>Background Image</source>
             </trans-unit>
+            <trans-unit id="general.logo">
+                <source>Logo Image</source>
+            </trans-unit>
             <trans-unit id="general.title">
                 <source>Title</source>
             </trans-unit>
@@ -74,6 +77,12 @@
             </trans-unit>
             <trans-unit id="general.fields">
                 <source>Fields</source>
+            </trans-unit>
+            <trans-unit id="gallery.title">
+                <source>Items</source>
+            </trans-unit>
+            <trans-unit id="general.items.title">
+                <source>Items</source>
             </trans-unit>
 		</body>
 	</file>
