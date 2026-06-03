@@ -3,9 +3,34 @@
     <div class="container">
         <f:if condition="{settings.logo}">
             <f:then>
+                <f:variable name="logoSrc" value="{settings.logo}" />
+                <f:if condition="{f:startsWith(search: 'EXT:', subject: settings.logo)}">
+                    <f:variable name="logoSrc" value="{f:uri.resource(path: settings.logo)}" />
+                </f:if>
+                <f:if condition="{f:startsWith(search: 'fileadmin/', subject: settings.logo)}">
+                    <f:variable name="logoSrc" value="/{settings.logo}" />
+                </f:if>
+                <f:if condition="{f:startsWith(search: 'uploads/', subject: settings.logo)}">
+                    <f:variable name="logoSrc" value="/{settings.logo}" />
+                </f:if>
+                <f:variable name="logoWidth" value="{settings.logo_width}" />
+                <f:if condition="{settings.logo_width} && !{f:contains(value: settings.logo_width, subject: 'px')} && !{f:contains(value: settings.logo_width, subject: '%')} && !{f:contains(value: settings.logo_width, subject: 'em')} && !{f:contains(value: settings.logo_width, subject: 'rem')}">
+                    <f:variable name="logoWidth" value="{settings.logo_width}" />
+                </f:if>
+                <f:variable name="logoHeight" value="{settings.logo_height}" />
+                <f:if condition="{settings.logo_height} && !{f:contains(value: settings.logo_height, subject: 'px')} && !{f:contains(value: settings.logo_height, subject: '%')} && !{f:contains(value: settings.logo_height, subject: 'em')} && !{f:contains(value: settings.logo_height, subject: 'rem')}">
+                    <f:variable name="logoHeight" value="{settings.logo_height}" />
+                </f:if>
                 <f:link.page pageUid="{f:cObject(typoscriptObjectPath: 'lib.rootPageId')}"
                     class="navbar-brand js-scroll-trigger">
-                    <img src="{settings.logo}" alt="logo" class="angency-logo" />
+                    <f:if condition="{settings.logo_width} || {settings.logo_height}">
+                        <f:then>
+                            <img src="{logoSrc}" alt="{f:if(condition: settings.logo_text, then: settings.logo_text, else: 'Logo')}" class="angency-logo" style="width:{logoWidth};height:{logoHeight};" />
+                        </f:then>
+                        <f:else>
+                            <img src="{logoSrc}" alt="{f:if(condition: settings.logo_text, then: settings.logo_text, else: 'Logo')}" class="angency-logo" />
+                        </f:else>
+                    </f:if>
                     <f:if condition="{settings.logo_text}">{settings.logo_text}</f:if>
                 </f:link.page>
             </f:then>

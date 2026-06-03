@@ -1,25 +1,40 @@
 (function($) {
   "use strict"; // Start of use strict
 
-  
+  function getHashTarget(hash) {
+    if (!hash || hash.length < 2) {
+      return $();
+    }
+    var id = decodeURIComponent(hash.slice(1));
+    var element = document.getElementById(id);
+    if (element) {
+      return $(element);
+    }
+    try {
+      return $('[name="' + id.replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"]');
+    } catch (e) {
+      return $();
+    }
+  }
 
-  // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - 54)
-        }, 1000, "easeInOutExpo");
-        return false;
+  function closeResponsiveMenu() {
+    $('.navbar-collapse').collapse('hide');
+  }
+
+  // Smooth scrolling and always close responsive menu on nav click
+  $('a.js-scroll-trigger').click(function() {
+    var href = this.getAttribute('href') || '';
+    if (href.indexOf('#') !== -1 && href !== '#') {
+      if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+        var target = getHashTarget(this.hash);
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: (target.offset().top - 54)
+          }, 1000, "easeInOutExpo");
+        }
       }
     }
-  });
-
-  // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
+    closeResponsiveMenu();
   });
 
   // Activate scrollspy to add active class to navbar items on scroll

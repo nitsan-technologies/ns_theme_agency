@@ -381,15 +381,12 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
     private function migrateBanner(int $uid, int $pid, string $cType, array $parsed, int $langUid): void
     {
 
-        $imageUid = (int) ($parsed['image'] ?? 0);
-
         $data = [
             'CType'              => $cType,
-            'image'              => $imageUid,
             'title'              => $parsed['title'] ?? '',
             'subtitle'           => $parsed['subtitle'] ?? '',
             'btntext'            => $parsed['btntext'] ?? '',
-            'scrollid'           => $parsed['scrollid'] ?? '',
+            'scrollid'           => $parsed['scrollid'] ?? ($parsed['btnlink'] ?? ''),
             'sys_language_uid'   => $langUid,
             'pid'                => $pid,
         ];
@@ -549,6 +546,7 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
         foreach ($data as $key => $val) {
             $queryBuilder->set($key, $val);
         }
+        $queryBuilder->set('pi_flexform', '');
         $queryBuilder->executeStatement();
     }
 }

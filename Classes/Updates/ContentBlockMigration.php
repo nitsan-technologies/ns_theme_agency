@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use NITSAN\NsThemeFreelancer\Service\ContentBlockMigration as MigrationService;
+use NITSAN\NsThemeAgency\Service\ContentBlockMigration as MigrationService;
 
 #[UpgradeWizard('t3agency_content_block_migration')]
 final class ContentBlockMigration implements UpgradeWizardInterface

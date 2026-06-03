@@ -12,9 +12,9 @@
 
 $EM_CONF['ns_theme_agency'] = array (
   'title' => 'T3 Agency – Modern TYPO3 Template',
-  'description' => 'A professional TYPO3 website template ideal for software companies, startups, and digital agencies. Fully responsive and compatible with TYPO3 v12 & v13.',
+  'description' => 'A professional TYPO3 website template ideal for software companies, startups, and digital agencies. Fully responsive and compatible with TYPO3 v14.',
   'category' => 'templates',
-  'version' => '13.0.7',
+  'version' => '14.0.0',
   'state' => 'stable',
   'uploadfolder' => false,
   'author' => 'Team T3Planet',
@@ -31,6 +31,7 @@ $EM_CONF['ns_theme_agency'] = array (
     ),
     'conflicts' => 
     array (
+      'ns_theme_bootstrap' => 'T3 Bootstrap and T3 Agency define the same content block names (e.g. nitsan/ns-banner). Use only one theme extension.',
     ),
     'suggests' => 
     array (

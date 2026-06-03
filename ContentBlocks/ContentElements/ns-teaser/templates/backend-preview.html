@@ -16,46 +16,53 @@
                 </f:if>
             </div>
             <f:if condition="{data.teaser_items}">
-                <f:for each="{data.teaser_items}" as="item">
-                    <div class="col-md-4">
-                        <div class="teser-grid">
-                            <div class="portfolio-image teaser">
-                                <f:if condition="{item.check} == '1'">
-                                    <f:then>
-                                        <f:variable name="fileUrl"
-                                            value="{f:uri.typolink(parameter: item.image) -> f:format.raw()}" />
-                                        <img src="{fileUrl}" style="width:100px; height:100px; object-fit:cover;"
-                                            alt="image" />
-                                    </f:then>
-                                    <f:else>
-                                        <f:if condition="{item.icon}">
-                                            <i class="fa {item.icon}"></i>
-                                        </f:if>
-                                    </f:else>
-                                </f:if>
-                            </div>
-                            <div class="portfolio-dec">
-                                <f:if condition="{item.title}">
-                                    <h3>{item.title}</h3>
-                                </f:if>
-                                <f:if condition="{item.text}">
-                                    <f:format.crop maxCharacters="200">
-                                        <f:format.raw>{item.text}</f:format.raw>
-                                    </f:format.crop>
-                                </f:if>
-                                <f:if condition="{item.twitter}">
-                                    <i class="fab fa-twitter"></i>
-                                </f:if>
-                                <f:if condition="{item.facebook}">
-                                    <i class="fab fa-facebook-f"></i>
-                                </f:if>
-                                <f:if condition="{item.linkedin}">
-                                    <i class="fab fa-linkedin"></i>
-                                </f:if>
+                <f:for each="{data.teaser_items}" as="item" iteration="iterator">
+                    <f:if condition="{iterator.cycle} <= 3">
+                        <div class="col-md-4">
+                            <div class="teser-grid">
+                                <div class="portfolio-image teaser">
+                                    <f:if condition="{item.check} == '1'">
+                                        <f:then>
+                                            <f:variable name="fileUrl"
+                                                value="{f:uri.typolink(parameter: item.image) -> f:format.raw()}" />
+                                            <img src="{fileUrl}" style="width:100px; height:100px; object-fit:cover;"
+                                                alt="image" />
+                                        </f:then>
+                                        <f:else>
+                                            <f:if condition="{item.icon}">
+                                                <i class="fa {item.icon}"></i>
+                                            </f:if>
+                                        </f:else>
+                                    </f:if>
+                                </div>
+                                <div class="portfolio-dec">
+                                    <f:if condition="{item.title}">
+                                        <h3>{item.title}</h3>
+                                    </f:if>
+                                    <f:if condition="{item.text}">
+                                        <f:format.crop maxCharacters="200">
+                                            <f:format.raw>{item.text}</f:format.raw>
+                                        </f:format.crop>
+                                    </f:if>
+                                    <f:if condition="{item.twitter}">
+                                        <i class="fab fa-twitter"></i>
+                                    </f:if>
+                                    <f:if condition="{item.facebook}">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </f:if>
+                                    <f:if condition="{item.linkedin}">
+                                        <i class="fab fa-linkedin"></i>
+                                    </f:if>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </f:if>
                 </f:for>
+                <f:if condition="{f:count(subject: data.teaser_items)} > 3">
+                    <div class="col-12" style="text-align:center; margin-top: 10px;">
+                        <em>+ {f:count(subject: data.teaser_items) - 3} more teaser item(s)</em>
+                    </div>
+                </f:if>
             </f:if>
             <div style="text-align: center;">
                 <f:if condition="{data.otherText}">
