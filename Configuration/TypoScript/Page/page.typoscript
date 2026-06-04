@@ -32,8 +32,9 @@ page {
     // Setup favion
     shortcutIcon = {$ns_basetheme.website.settings.favicon}
 
-    // Set viewport
+    // Set viewport and page keywords from pages.keywords
     meta {
+        keywords.field = keywords
         viewport = width=device-width, initial-scale=1, shrink-to-fit=no
     }
 
@@ -110,22 +111,18 @@ lib {
         renderObj {
             5 = TEXT
             5 {
-                field = title
+                # ASCII anchor from page slug (/about -> about), safe for jQuery/CSS
+                field = slug
                 htmlSpecialChars = 1
                 wrap = <section id='|'
                 stdWrap {
-                    case = lower
                     replacement {
                         10 {
-                            search.char = 32
-                            replace.char = 45
-                        }
-                        15 {
                             search = /
-                            replace = 
+                            replace =
                         }
                     }
-                }    
+                }
             }
             5.noTrimWrap = | | |
 

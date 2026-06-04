@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file datatype="plaintext" original="labels.xlf" source-language="en" date="2025-08-28T14:39:00+00:00" product-name="nitsan/ns-teaser">
+		<header/>
+		<body>
+			<trans-unit id="title">
+				<source>Teaser</source>
+			</trans-unit>
+			<trans-unit id="description">
+				<source>Teaser and Team element with title, text and image.</source>
+			</trans-unit>
+			<trans-unit id="teaser.icon.items.fa-shopping-cart.label">
+				<source>Shopping Cart</source>
+			</trans-unit>
+			<trans-unit id="teaser.icon.items.fa-laptop.label">
+				<source>Laptop</source>
+			</trans-unit>
+			<trans-unit id="teaser.icon.items.fa-lock.label">
+				<source>Lock</source>
+			</trans-unit>
+			<trans-unit id="tabs.appearance_tab">
+				<source>Appearance</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
