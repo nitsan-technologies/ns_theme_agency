@@ -1,21 +1,54 @@
 (function($) {
   "use strict"; // Start of use strict
 
-  
+  var scrollOffset = 54;
+
+  function getScrollTarget(hash) {
+    if (!hash || hash.length < 2) {
+      return $();
+    }
+    var id = decodeURIComponent(hash.slice(1));
+    var element = document.getElementById(id);
+    if (element) {
+      return $(element);
+    }
+    if (window.CSS && CSS.escape) {
+      return $('[name="' + CSS.escape(id) + '"]');
+    }
+    return $('[name="' + id.replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"]');
+  }
+
+  function scrollToHash(hash, animate) {
+    var target = getScrollTarget(hash);
+    if (!target.length) {
+      return false;
+    }
+    var top = target.offset().top - scrollOffset;
+    if (animate) {
+      $('html, body').animate({
+        scrollTop: top
+      }, 1000, "easeInOutExpo");
+    } else {
+      $('html, body').scrollTop(top);
+    }
+    return true;
+  }
 
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - 54)
-        }, 1000, "easeInOutExpo");
+      if (scrollToHash(this.hash, true)) {
         return false;
       }
     }
   });
+
+  // Scroll to hash on load (e.g. /#about)
+  if (window.location.hash) {
+    window.setTimeout(function() {
+      scrollToHash(window.location.hash, false);
+    }, 0);
+  }
 
   // Closes responsive menu when a scroll trigger link is clicked
   $('.js-scroll-trigger').click(function() {

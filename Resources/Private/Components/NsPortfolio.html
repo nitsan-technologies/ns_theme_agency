@@ -14,7 +14,7 @@
       </div>
       <div class="row">
         <f:for each="{content.portfolio}" as="item" iteration="i">
-          <div class="col-md-4 col-sm-6 portfolio-item">
+          <div class="col-12 col-sm-6 col-md-4 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{i.cycle}">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
@@ -22,7 +22,7 @@
                 </div>
               </div>
               <f:if condition="{item.image}">
-                <f:image src="{item.image}" class="img-fluid" alt="image" width="350c" height="263c" />
+                <f:image src="{item.image}" class="img-fluid w-100" alt="image" maxWidth="800" />
               </f:if>
             </a>
             <div class="portfolio-caption">

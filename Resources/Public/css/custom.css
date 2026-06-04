@@ -211,12 +211,20 @@ footer .quicklinks a:hover{
         border-width: 4px;
         width: 100px;
         height: 100px;
+        left: 0;
+        margin-left: 0;
     }
-    .timeline:before{
-        left:54px;
+
+    .timeline:before {
+        left: 68px;
     }
-    .timeline>li .timeline-panel,.timeline>li.timeline-inverted>.timeline-panel{
+
+    .timeline > li .timeline-panel,
+    .timeline > li.timeline-inverted > .timeline-panel {
+        float: right;
+        width: 100%;
         padding: 0 0 0 110px;
+        text-align: left;
     }
     .error.help-block{
       font-size: 15px;
