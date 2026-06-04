@@ -20,6 +20,11 @@ $EM_CONF['ns_theme_agency'] = array (
   'author' => 'Team T3Planet',
   'author_email' => 'info@t3planet.de',
   'author_company' => 'T3Planet',
+  'autoload' => [
+    'psr-4' => [
+      'NITSAN\\NsThemeAgency\\' => 'Classes',
+    ],
+  ],
   'constraints' => 
   array (
     'depends' => 

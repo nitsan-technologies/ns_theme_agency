@@ -14,7 +14,7 @@
       </div>
       <div class="row">
         <f:for each="{data.portfolio}" as="item" iteration="i">
-          <div class="col-md-4 col-sm-6 portfolio-item">
+          <div class="col-12 col-sm-6 col-md-4 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{i.cycle}">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
@@ -24,7 +24,7 @@
               <f:if condition="{item.image}">
                 <f:variable name="fileUrl" value="{f:uri.typolink(parameter: item.image) -> f:format.raw()}" />
                 <f:if condition="{fileUrl}">
-                  <img src="{fileUrl}" style="width:350px; height:263px; object-fit:cover;" alt="portfolio image" />
+                  <img src="{fileUrl}" class="img-fluid w-100" alt="portfolio image" />
                 </f:if>
               </f:if>
 

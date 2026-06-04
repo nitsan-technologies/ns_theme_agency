@@ -3,32 +3,15 @@
     <div class="container">
         <f:if condition="{settings.logo}">
             <f:then>
-                <f:variable name="logoSrc" value="{settings.logo}" />
-                <f:if condition="{f:startsWith(search: 'EXT:', subject: settings.logo)}">
-                    <f:variable name="logoSrc" value="{f:uri.resource(path: settings.logo)}" />
-                </f:if>
-                <f:if condition="{f:startsWith(search: 'fileadmin/', subject: settings.logo)}">
-                    <f:variable name="logoSrc" value="/{settings.logo}" />
-                </f:if>
-                <f:if condition="{f:startsWith(search: 'uploads/', subject: settings.logo)}">
-                    <f:variable name="logoSrc" value="/{settings.logo}" />
-                </f:if>
-                <f:variable name="logoWidth" value="{settings.logo_width}" />
-                <f:if condition="{settings.logo_width} && !{f:contains(value: settings.logo_width, subject: 'px')} && !{f:contains(value: settings.logo_width, subject: '%')} && !{f:contains(value: settings.logo_width, subject: 'em')} && !{f:contains(value: settings.logo_width, subject: 'rem')}">
-                    <f:variable name="logoWidth" value="{settings.logo_width}" />
-                </f:if>
-                <f:variable name="logoHeight" value="{settings.logo_height}" />
-                <f:if condition="{settings.logo_height} && !{f:contains(value: settings.logo_height, subject: 'px')} && !{f:contains(value: settings.logo_height, subject: '%')} && !{f:contains(value: settings.logo_height, subject: 'em')} && !{f:contains(value: settings.logo_height, subject: 'rem')}">
-                    <f:variable name="logoHeight" value="{settings.logo_height}" />
-                </f:if>
                 <f:link.page pageUid="{f:cObject(typoscriptObjectPath: 'lib.rootPageId')}"
                     class="navbar-brand js-scroll-trigger">
                     <f:if condition="{settings.logo_width} || {settings.logo_height}">
                         <f:then>
-                            <img src="{logoSrc}" alt="{f:if(condition: settings.logo_text, then: settings.logo_text, else: 'Logo')}" class="angency-logo" style="width:{logoWidth};height:{logoHeight};" />
+                            <f:image src="{settings.logo}" alt="{f:if(condition: settings.logo_text, then: settings.logo_text, else: 'Logo')}" class="angency-logo"
+                                width="{settings.logo_width}c" height="{settings.logo_height}c" />
                         </f:then>
                         <f:else>
-                            <img src="{logoSrc}" alt="{f:if(condition: settings.logo_text, then: settings.logo_text, else: 'Logo')}" class="angency-logo" />
+                            <f:image src="{settings.logo}" alt="{f:if(condition: settings.logo_text, then: settings.logo_text, else: 'Logo')}" class="angency-logo" />
                         </f:else>
                     </f:if>
                     <f:if condition="{settings.logo_text}">{settings.logo_text}</f:if>
@@ -66,10 +49,10 @@
                 </f:then>
                 <f:else>
                     <li class="nav-item menu-{data.uid} {f:if(condition: item.children, then:' has-sub-menu')}">
-                        <f:variable name="menuTitle"><f:replace value="{item.title}" search=" " replace="-" /></f:variable>
-                        <a href="./#{f:format.case(mode: 'lower', value: '{menuTitle}')}" class="nav-link js-scroll-trigger"
-                            id="nav-item-{item.data.uid}" data-hash="#{f:format.case(mode: 'lower', value: '{menuTitle}')}"
-                            {f:if(condition: item.target, then: ' target="{item.target}"' )} title="{menuTitle}"
+                        <f:variable name="menuAnchor"><f:replace value="{item.data.slug}" search="/" replace="" /></f:variable>
+                        <a href="./#{menuAnchor}" class="nav-link js-scroll-trigger"
+                            id="nav-item-{item.data.uid}" data-hash="#{menuAnchor}"
+                            {f:if(condition: item.target, then: ' target="{item.target}"' )} title="{item.title}"
                             {f:if(condition: item.children, then:' aria-haspopup="true" aria-expanded="false"')}>
                                     {item.title}<f:if condition="{item.current}"> <span class="sr-only">(current)</span></f:if>
                                 </a>

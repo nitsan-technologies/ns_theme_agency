@@ -1,23 +1,20 @@
 <?php
+
+declare(strict_types=1);
+
 namespace NITSAN\NsThemeAgency\Service;
 
-use NITSAN\NsThemeAgency\Domain\Repository\ContentBlocksRepository;
 use SimpleXMLElement;
+use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\Restriction\HiddenRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\StringUtility;
 
 class ContentBlockMigration
 {
-    private $contentBlocksRepository;
-
-    private $connectionPool;
-
-    public function __construct()
-    {
-        $this->contentBlocksRepository = GeneralUtility::makeInstance(ContentBlocksRepository::class);
-        $this->connectionPool          = GeneralUtility::makeInstance(ConnectionPool::class);
-    }
+    public function __construct(
+        private readonly ConnectionPool $connectionPool,
+    ) {}
 
     public function migrate(array $elements)
     {
@@ -26,7 +23,7 @@ class ContentBlockMigration
             $flexFormPath              = GeneralUtility::getFileAbsFileName('EXT:ns_theme_agency/Configuration/FlexForms/');
             $originalXml               = $this->scanAndParseXmlFiles($flexFormPath, $ce);
             $fields                    = $this->getFieldsFromXml($originalXml);
-            $registeredContentElements = $this->contentBlocksRepository->getRegisteredContentElements($ce);
+            $registeredContentElements = $this->getContentElementsWithFlexForm($cType);
             if (! empty($registeredContentElements)) {
                 foreach ($registeredContentElements as $element) {
                     if (isset($element['pi_flexform']) && $element['pi_flexform'] !== '') {
@@ -347,12 +344,9 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
   
     if (!empty($parsed['gallery']) && is_array($parsed['gallery'])) {
 
-        $this->contentBlocksRepository->deleteOldRecord($uid, $langUid, 'gallery');
+        $this->deleteChildRecords($uid, $langUid, 'gallery');
 
         foreach ($parsed['gallery'] as $galleryItem) {
-            $randomString = StringUtility::getUniqueId('NEW');
-
-           
             $imagePath = $galleryItem['image'] ?? '';
             if (!empty($imagePath) && $imagePath !== '0' && !str_starts_with($imagePath, 't3://file')) {
                 $imagePath = 't3://file?uid=' . (int)$imagePath;
@@ -368,11 +362,7 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
                 'text'                     => $galleryItem['text'] ?? '',
             ];
 
-            $this->contentBlocksRepository->insertDataWithDataHandler(
-                $itemData,
-                $randomString,
-                'gallery'
-            );
+            $this->insertChildRecord($itemData, 'gallery');
         }
     }
 }
@@ -380,6 +370,10 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
 
     private function migrateBanner(int $uid, int $pid, string $cType, array $parsed, int $langUid): void
     {
+        $fileUid = (int)($parsed['image'] ?? 0);
+        if ($fileUid > 0) {
+            $this->replaceFileReference($uid, $pid, $fileUid, 'image', $langUid);
+        }
 
         $data = [
             'CType'              => $cType,
@@ -387,12 +381,12 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
             'subtitle'           => $parsed['subtitle'] ?? '',
             'btntext'            => $parsed['btntext'] ?? '',
             'scrollid'           => $parsed['scrollid'] ?? ($parsed['btnlink'] ?? ''),
+            'editlock'           => 0,
             'sys_language_uid'   => $langUid,
             'pid'                => $pid,
         ];
 
         $this->updateTtContent($data, $uid, $pid);
-
     }
 
     private function migrateHeadline(int $uid, int $pid, string $cType, array $parsed, int $langUid): void
@@ -453,9 +447,6 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
 
         if (!empty($parsed['portfolio']) ) {
             foreach ($parsed['portfolio'] as $portfolioItem) {
-                $randomString = StringUtility::getUniqueId('NEW');
-
-            
                 $imagePath = $portfolioItem['image'] ?? '';
                 
                 if (!str_starts_with($imagePath, 't3://file')) {
@@ -472,7 +463,7 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
                     'text'                     => $portfolioItem['text'] ?? '',
                 ];
 
-                $this->contentBlocksRepository->insertDataWithDataHandler($itemData, $randomString, 'portfolio');
+                $this->insertChildRecord($itemData, 'portfolio');
             }
         }
     }
@@ -491,7 +482,7 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
 
     $this->updateTtContent($data, $uid, $pid);
 
-    $this->contentBlocksRepository->deleteOldRecord($uid, $langUid, 'teaser_items');
+    $this->deleteChildRecords($uid, $langUid, 'teaser_items');
     $items = [];
     if (!empty($parsed['teaser_items'])) {
         $items = $parsed['teaser_items'];
@@ -500,8 +491,6 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
     }
 
     foreach ($items as $item) {
-        $randomString = StringUtility::getUniqueId('NEW');
-
         $imagePath = $item['image'] ?? '';
         if (!empty($imagePath) && $imagePath !== '0' && !str_starts_with($imagePath, 't3://file')) {
             $imagePath = 't3://file?uid=' . (int)$imagePath;
@@ -521,11 +510,7 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
             'linkedin'                 => $item['linkedin'] ?? '',
         ];
 
-        $this->contentBlocksRepository->insertDataWithDataHandler(
-            $itemData,
-            $randomString,
-            'teaser_items' 
-        );
+        $this->insertChildRecord($itemData, 'teaser_items');
     }
 }
 
@@ -547,6 +532,99 @@ private function migrateAbout(int $uid, int $pid, string $cType, array $parsed, 
             $queryBuilder->set($key, $val);
         }
         $queryBuilder->set('pi_flexform', '');
+        $queryBuilder->set('editlock', 0);
         $queryBuilder->executeStatement();
+    }
+
+    /**
+     * @return list<array{uid: int, pi_flexform: string, pid: int, sys_language_uid: int}>
+     */
+    private function getContentElementsWithFlexForm(string $cType): array
+    {
+        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
+        $queryBuilder->getRestrictions()->removeByType(HiddenRestriction::class);
+        $result = $queryBuilder
+            ->select('uid', 'pi_flexform', 'pid', 'sys_language_uid')
+            ->from('tt_content')
+            ->where(
+                $queryBuilder->expr()->eq(
+                    'CType',
+                    $queryBuilder->createNamedParameter($cType)
+                ),
+                $queryBuilder->expr()->neq(
+                    'pi_flexform',
+                    $queryBuilder->createNamedParameter('')
+                )
+            )
+            ->executeQuery()
+            ->fetchAllAssociative();
+
+        return $result ?: [];
+    }
+
+    private function insertChildRecord(array $data, string $tableName): void
+    {
+        $this->connectionPool
+            ->getQueryBuilderForTable($tableName)
+            ->insert($tableName)
+            ->values($data)
+            ->executeStatement();
+    }
+
+    private function deleteChildRecords(int $parentId, int $langId, string $tableName): void
+    {
+        $queryBuilder = $this->connectionPool->getQueryBuilderForTable($tableName);
+        $queryBuilder
+            ->delete($tableName)
+            ->where(
+                $queryBuilder->expr()->eq(
+                    'foreign_table_parent_uid',
+                    $queryBuilder->createNamedParameter($parentId, Connection::PARAM_INT)
+                )
+            )
+            ->andWhere(
+                $queryBuilder->expr()->eq(
+                    'sys_language_uid',
+                    $queryBuilder->createNamedParameter($langId, Connection::PARAM_INT)
+                )
+            )
+            ->executeStatement();
+    }
+
+    private function replaceFileReference(
+        int $contentUid,
+        int $pid,
+        int $fileUid,
+        string $fieldName,
+        int $languageId = 0
+    ): void {
+        if ($fileUid <= 0) {
+            return;
+        }
+
+        $referenceConnection = $this->connectionPool->getConnectionForTable('sys_file_reference');
+        $referenceConnection->delete(
+            'sys_file_reference',
+            [
+                'uid_foreign' => $contentUid,
+                'tablenames' => 'tt_content',
+                'fieldname' => $fieldName,
+            ]
+        );
+
+        $referenceConnection->insert(
+            'sys_file_reference',
+            [
+                'pid' => $pid,
+                'uid_local' => $fileUid,
+                'uid_foreign' => $contentUid,
+                'tablenames' => 'tt_content',
+                'fieldname' => $fieldName,
+                'sorting_foreign' => 1,
+                'sys_language_uid' => $languageId,
+                'tstamp' => time(),
+                'crdate' => time(),
+            ]
+        );
     }
 }
