@@ -25,7 +25,6 @@
   "require": {
     "typo3/cms-core": "^14.0",
     "nitsan/ns-basetheme": "^14.0",
-    "georgringer/news": "^14.0",
     "friendsoftypo3/content-blocks": "^14.0"
   },
   "autoload": {
