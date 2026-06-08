@@ -1,32 +1,40 @@
 <?php
+
 declare(strict_types=1);
 
 namespace NITSAN\NsThemeAgency\Updates;
 
+use NITSAN\NsThemeAgency\Service\ContentBlockMigration as MigrationService;
+use TYPO3\CMS\Core\Attribute\UpgradeWizard;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Install\Attribute\UpgradeWizard;
-use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
-use NITSAN\NsThemeAgency\Service\ContentBlockMigration as MigrationService;
-
+use TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface;
 
 #[UpgradeWizard('t3agency_content_block_migration')]
 final class ContentBlockMigration implements UpgradeWizardInterface
 {
-    private array $elements = [];
+    private const CONTENT_BLOCK_CTYPES = [
+        'nitsan_nsabout',
+        'nitsan_nsbanner',
+        'nitsan_nsheadline',
+        'nitsan_nslogos',
+        'nitsan_nsportfolio',
+        'nitsan_nsteaser',
+    ];
 
-    public function __construct()
-    {   
-        $this->elements = [
-            'ns_about',
-            'ns_banner',
-            'ns_headline',
-            'ns_logos',
-            'ns_portfolio',
-            'ns_teaser',
-        ];
-    }
+    private const LEGACY_ELEMENTS = [
+        'ns_about',
+        'ns_banner',
+        'ns_headline',
+        'ns_logos',
+        'ns_portfolio',
+        'ns_teaser',
+    ];
+
+    public function __construct(
+        private readonly MigrationService $migrationService
+    ) {}
 
     public function getTitle(): string
     {
@@ -35,19 +43,14 @@ final class ContentBlockMigration implements UpgradeWizardInterface
 
     public function getDescription(): string
     {
-        return 'Migrate flexform content elements to content blocks. Please make sure to take a backup of your database before running this migration.';
+        return 'Migrate legacy flexform data of Agency content elements into Content Block fields so they can be edited in the backend.';
     }
 
     public function executeUpdate(): bool
     {
-        try {
-            $migrationService = GeneralUtility::makeInstance(MigrationService::class);
-            $migrationService->migrate($this->elements);
-            return true;
-        } catch (\Throwable $e) {
-            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($e, __FILE__ . ' ' . __LINE__);
-            die;
-        }
+        $this->migrationService->migrate(self::LEGACY_ELEMENTS);
+
+        return true;
     }
 
     public function updateNecessary(): bool
@@ -55,18 +58,22 @@ final class ContentBlockMigration implements UpgradeWizardInterface
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
             ->getQueryBuilderForTable('tt_content');
 
-        $count = $queryBuilder
+        $count = (int)$queryBuilder
             ->count('uid')
             ->from('tt_content')
             ->where(
                 $queryBuilder->expr()->in(
                     'CType',
-                    $queryBuilder->createNamedParameter($this->elements, Connection::PARAM_STR_ARRAY)
+                    $queryBuilder->createNamedParameter(self::CONTENT_BLOCK_CTYPES, Connection::PARAM_STR_ARRAY)
+                ),
+                $queryBuilder->expr()->neq(
+                    'pi_flexform',
+                    $queryBuilder->createNamedParameter('')
                 )
             )
             ->executeQuery()
             ->fetchOne();
-        
+
         return $count > 0;
     }
 
@@ -75,7 +82,3 @@ final class ContentBlockMigration implements UpgradeWizardInterface
         return [];
     }
 }
-
-
-
-

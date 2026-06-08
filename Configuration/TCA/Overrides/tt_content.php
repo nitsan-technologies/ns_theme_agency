@@ -9,6 +9,6 @@ call_user_func(function () {
     'tt_content', // table
     'CType', // typeField
     't3themeagency_content_blocks', // group
-    'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang.xlf:contentBlocks.blocks', // label
+    'LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:contentBlocks.blocks', // label
     'before:default', // position
 );

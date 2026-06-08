@@ -32,10 +32,11 @@ page {
     // Setup favion
     shortcutIcon = {$ns_basetheme.website.settings.favicon}
 
-    // Set viewport and page keywords from pages.keywords
+    // Meta tags from page record (SEO tab) and viewport
     meta {
-        keywords.field = keywords
-        viewport = width=device-width, initial-scale=1, shrink-to-fit=no
+        // Inherit keywords from current page or ancestor (root SEO keywords on subpages)
+        keywords.data = levelfield:-1, keywords, slide
+        viewport = width=device-width, initial-scale=1
     }
 
     // Initiate all the css-together
@@ -111,7 +112,7 @@ lib {
         renderObj {
             5 = TEXT
             5 {
-                # ASCII anchor from page slug (/about -> about), safe for jQuery/CSS
+                # ASCII anchor from page slug (/about -> about), matches one-page menu in Header.html
                 field = slug
                 htmlSpecialChars = 1
                 wrap = <section id='|'
@@ -178,3 +179,7 @@ lib {
         }
     }
 }
+
+# Ensure keywords use slide (override ns_basetheme "keywords.field = keywords" on empty pages)
+page.meta.keywords >
+page.meta.keywords.data = levelfield:-1, keywords, slide

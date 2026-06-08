@@ -45,6 +45,9 @@
             <trans-unit id="wizard.ns_logos.desc">
                 <source>Logos with field image.</source>
             </trans-unit>
+            <trans-unit id="contentBlocks.blocks">
+                <source>Content Block</source>
+            </trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -5,7 +5,15 @@
             <f:then>
                 <f:link.page pageUid="{f:cObject(typoscriptObjectPath: 'lib.rootPageId')}"
                     class="navbar-brand js-scroll-trigger">
-                    <img src="{settings.logo}" alt="logo" class="angency-logo" />
+                    <f:if condition="{settings.logo_width} || {settings.logo_height}">
+                        <f:then>
+                            <f:image src="{settings.logo}" alt="{f:if(condition: settings.logo_text, then: settings.logo_text, else: 'Logo')}" class="angency-logo"
+                                width="{settings.logo_width}c" height="{settings.logo_height}c" />
+                        </f:then>
+                        <f:else>
+                            <f:image src="{settings.logo}" alt="{f:if(condition: settings.logo_text, then: settings.logo_text, else: 'Logo')}" class="angency-logo" />
+                        </f:else>
+                    </f:if>
                     <f:if condition="{settings.logo_text}">{settings.logo_text}</f:if>
                 </f:link.page>
             </f:then>

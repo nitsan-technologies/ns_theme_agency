@@ -586,6 +586,6 @@ header.masthead .intro-text .intro-lead-in {
 }
 
 .angency-logo {
-  width: 120px;
-  height: 40px;
+  max-width: 100%;
+  height: auto;
 }

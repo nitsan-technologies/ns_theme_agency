@@ -18,8 +18,8 @@
               <f:then>
                 <div class="team-member">
                   <f:if condition="{teaserData.image}">
-                      <f:variable name="fileUrl" value="{f:uri.typolink(parameter: teaserData.image) -> f:format.raw()}" />
-                      <img src="{fileUrl}" class="mx-auto rounded-circle" alt="image" />
+                    <f:variable name="fileUrl" value="{f:uri.typolink(parameter: teaserData.image) -> f:format.raw()}" />
+                    <img src="{fileUrl}" class="mx-auto rounded-circle" alt="image" />
                   </f:if>
                   <h4>{teaserData.title}</h4>
                   <f:if condition="{teaserData.text}">

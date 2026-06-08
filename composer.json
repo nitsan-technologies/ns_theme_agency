@@ -23,9 +23,14 @@
   },
   "license": "MIT",
   "require": {
-    "typo3/cms-core": "^12 || ^13",
-    "nitsan/ns-basetheme": "^12.0 || ^13.0",
-    "friendsoftypo3/content-blocks" : "^0.1 || ^1.5"
+    "typo3/cms-core": "^14.0",
+    "nitsan/ns-basetheme": "^14.0",
+    "friendsoftypo3/content-blocks": "^2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "NITSAN\\NsThemeAgency\\": "Classes/"
+    }
   },
   "replace": {
       "typo3-ter/ns-theme-agency": "self.version"

@@ -1,8 +1,8 @@
 <?php
 
+defined('TYPO3') or die();
 
-// Let's include PageTSconfig
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig("@import 'EXT:ns_theme_agency/Configuration/PageTSconfig/setup.typoscript'");
+// Page TSconfig: via site set (Configuration/Sets/ns_theme_agency/config.yaml → pagets).
+// addPageTSConfig() was removed in TYPO3 v14.
 
-// Let's add default PageTS for "Form"
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default'] = 'EXT:ns_theme_agency/Configuration/RTE/Default.yaml';

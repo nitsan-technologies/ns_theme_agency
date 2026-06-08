@@ -3,5 +3,5 @@
 @import "EXT:ns_theme_agency/Configuration/PageTSconfig/TceForm"
 
 mod.wizards.newContentElement.wizardItems {
-    t3themeagency_content_blocks.header = LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang.xlf:contentBlocks.Block
+    t3themeagency_content_blocks.header = LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:contentBlocks.blocks
 }

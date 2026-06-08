@@ -1,9 +1,7 @@
 (function($) {
   "use strict"; // Start of use strict
 
-  var scrollOffset = 54;
-
-  function getScrollTarget(hash) {
+  function getHashTarget(hash) {
     if (!hash || hash.length < 2) {
       return $();
     }
@@ -12,47 +10,31 @@
     if (element) {
       return $(element);
     }
-    if (window.CSS && CSS.escape) {
-      return $('[name="' + CSS.escape(id) + '"]');
+    try {
+      return $('[name="' + id.replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"]');
+    } catch (e) {
+      return $();
     }
-    return $('[name="' + id.replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"]');
   }
 
-  function scrollToHash(hash, animate) {
-    var target = getScrollTarget(hash);
-    if (!target.length) {
-      return false;
-    }
-    var top = target.offset().top - scrollOffset;
-    if (animate) {
-      $('html, body').animate({
-        scrollTop: top
-      }, 1000, "easeInOutExpo");
-    } else {
-      $('html, body').scrollTop(top);
-    }
-    return true;
+  function closeResponsiveMenu() {
+    $('.navbar-collapse').collapse('hide');
   }
 
-  // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      if (scrollToHash(this.hash, true)) {
-        return false;
+  // Smooth scrolling and always close responsive menu on nav click
+  $('a.js-scroll-trigger').click(function() {
+    var href = this.getAttribute('href') || '';
+    if (href.indexOf('#') !== -1 && href !== '#') {
+      if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+        var target = getHashTarget(this.hash);
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: (target.offset().top - 54)
+          }, 1000, "easeInOutExpo");
+        }
       }
     }
-  });
-
-  // Scroll to hash on load (e.g. /#about)
-  if (window.location.hash) {
-    window.setTimeout(function() {
-      scrollToHash(window.location.hash, false);
-    }, 0);
-  }
-
-  // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
+    closeResponsiveMenu();
   });
 
   // Activate scrollspy to add active class to navbar items on scroll

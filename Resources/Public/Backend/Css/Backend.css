@@ -1,4 +1,9 @@
 /* Start Genaral CSS for Backend */
+/* Preview must not capture clicks – edit/delete icons live in the CE header */
+.t3-page-ce .t3-page-ce-body-inner .ns-backend-preview {
+  pointer-events: none;
+}
+
 .ns-backend-preview {
   margin-top: 15px;
 }
@@ -145,9 +150,14 @@
 
 /* banner */
 .t3-page-ce .t3-page-ce-body-inner .banner-module img {
-  height: 350px;
+  height: 200px;
   width: 100%;
   object-fit: cover;
+}
+
+.t3-page-ce .t3-page-ce-body-inner .banner-module {
+  max-height: 200px;
+  overflow: hidden;
 }
 
 .banner-dec {
@@ -161,6 +171,7 @@
   height: 100%;
   width: 100%;
   text-align: center;
+  pointer-events: none;
 }
 
 .banner-details .btn {
