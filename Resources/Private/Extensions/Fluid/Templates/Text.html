@@ -7,7 +7,7 @@
 					<div class="container">
 						<div class="row">
 					        <div class="col-lg-8 mx-auto text-center highed">
-					          <f:format.html>{data.bodytext}</f:format.html>
+					          {record -> f:render.text(field: 'bodytext')}
 					        </div>
 				      	</div>
 					</div>
@@ -15,13 +15,13 @@
 			</f:case>
 			<f:case value="2">
 				<div class="container">
-					<f:format.html>{data.bodytext}</f:format.html>
+					{record -> f:render.text(field: 'bodytext')}
 				</div>
 			</f:case>
 			<f:defaultCase>
 				<section>
 					<div class="container">
-						<f:format.html>{data.bodytext}</f:format.html>
+						{record -> f:render.text(field: 'bodytext')}
 					</div>
 				</section>		
 			</f:defaultCase>

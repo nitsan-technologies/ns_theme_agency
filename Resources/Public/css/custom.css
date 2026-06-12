@@ -21,10 +21,6 @@ section li{
   margin: 20px;
 }
 
-.single-page-section{
-  padding: 0;
-}
-
 .timeline>li:last-child {
   min-height: 130px !important;
 }
@@ -103,6 +99,20 @@ form button#sendMessageButton {
   margin-top: 35px;
 }
 
+section h2.section-heading {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Subpages: space above headline (survives VE scroll-to-element) */
+.site-main section h2.section-heading {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding-top: 4rem;
+}
+
 h2.section-heading {
   margin-top: 50px;
 }
@@ -154,9 +164,16 @@ footer .quicklinks a:hover{
 .content #mainNav{
     background-color: #212529;
 }
-.content nav.fixed-top+ section{
-    padding-top: 150px;
+.content nav.fixed-top + section,
+.content .site-main > section {
+    padding-top: calc(100px + 4rem);
     min-height: calc(100vh - 110px);
+}
+
+@media (min-width: 768px) {
+    .content .site-main > section {
+        padding-top: calc(100px + 5rem);
+    }
 }
 .timeline-image {
     transition: 0.3s;
@@ -164,6 +181,7 @@ footer .quicklinks a:hover{
 .timeline-image:hover {
   transform: scale(1.1);
 }
+.timeline-image .timeline-story-text,
 .timeline-image p {
     position: absolute;
     top: 50%;
@@ -172,8 +190,32 @@ footer .quicklinks a:hover{
     font-size: 18px;
     line-height: 26px;
     width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
     font-weight: 700;
     font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+}
+
+.timeline-image .timeline-story-text p {
+    margin: 0;
+}
+
+.timeline-image .timeline-story-text ve-editable-rich-text,
+.timeline-image .timeline-story-text ve-editable-text {
+    display: block;
+    width: 100%;
+}
+
+.timeline-image .timeline-story-text ve-editable-rich-text .ck-editor,
+.timeline-image .timeline-story-text ve-editable-rich-text .ck-editor__main,
+.timeline-image .timeline-story-text ve-editable-rich-text .ck-content {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
 }
 @media (min-width: 1200px){
     #portfolio .portfolio-item .portfolio-link{
@@ -192,12 +234,17 @@ footer .quicklinks a:hover{
         max-height: 157px;
         overflow: hidden;
     }
-    section,.portfolio {
+    section,
+    .portfolio {
         padding: 65px 0;
     }
     .timeline>li .timeline-image{
         width: 130px;
         height: 130px;
+        margin-left: -65px;
+    }
+    .timeline > li:last-child .timeline-image {
+        left: 50%;
         margin-left: -65px;
     }
 }
@@ -237,16 +284,18 @@ footer .quicklinks a:hover{
     }
 }
 @media (max-width:992px){
-    section,.portfolio{
-        padding:50px 0;
+    section,
+    .portfolio {
+        padding: 100px 0;
     }
     section h3.section-subheading{
         margin-bottom: 40px;
     }
-   .content nav.fixed-top+ section{
-        padding-top: 100px;
+   .content .site-main > section {
+        padding-top: calc(80px + 3rem);
     }
-    .timeline-image p{
+    .timeline-image p,
+    .timeline-image .timeline-story-text {
         font-size: 14px;
         line-height: 17px;
     }
@@ -266,8 +315,84 @@ footer .quicklinks a:hover{
 .frame-space-after-large { margin-bottom: 3em; }
 .frame-space-after-extra-large { margin-bottom: 4em; }
 
-.site-main {
-    padding-top: 65px;
+/* Subpages + Visual Editor: match root one-page section typography */
+.site-main section {
+    padding-bottom: 100px;
+}
+
+@media (min-width: 768px) {
+    .site-main section {
+        padding-bottom: 150px;
+    }
+}
+
+.site-main .ns-headline-ce {
+  padding-top: 3rem;
+}
+
+section h3.section-subheading,
+.site-main section h3.section-subheading {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 75px;
+    text-transform: none;
+    font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+ve-editable-text,
+ve-editable-text .slot,
+ve-editable-rich-text .ck-content {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    line-height: inherit;
+    color: inherit;
+    text-transform: inherit;
+}
+
+section h2.section-heading ve-editable-text,
+section h2.section-heading ve-editable-text .slot,
+h2.section-heading ve-editable-text,
+h2.section-heading ve-editable-text .slot {
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+section h3.section-subheading ve-editable-text,
+section h3.section-subheading ve-editable-text .slot,
+h3.section-subheading ve-editable-text,
+h3.section-subheading ve-editable-text .slot {
+    font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 75px;
+    text-transform: none;
+}
+
+h4.service-heading ve-editable-text,
+h4.service-heading ve-editable-text .slot {
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-weight: 700;
+    text-transform: none;
+}
+
+.icon-teaser p,
+.icon-teaser ve-editable-rich-text .ck-content,
+.icon-teaser ve-editable-rich-text .ck-content p,
+.site-main .icon-teaser p,
+.site-main .ck-content,
+.site-main .ck-content p,
+.ck-content,
+.ck-content p {
+    font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-size: 1rem;
+    line-height: 1.75;
 }
 
 /* cms page css */
@@ -571,7 +696,8 @@ header.masthead .intro-text .intro-lead-in {
   }
 }
 
-#contact{
+/* One-page anchor scroll offset on homepage only */
+#contact {
   margin-top: -80px;
 }
 
@@ -588,4 +714,15 @@ header.masthead .intro-text .intro-lead-in {
 .angency-logo {
   max-width: 100%;
   height: auto;
+}
+
+.portfolio-modal .close-modal {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+/* One-page root: portfolio modals must not inherit #portfolio { z-index: 2 } trap */
+#portfolio .portfolio-modal {
+  z-index: 100000 !important;
 }

@@ -1,18 +1,23 @@
 <f:layout name="Default" />
 
 <f:section name="main">
+	<f:variable name="sectionId">page-{data.slug -> f:replace(search: '/', replace: '')}</f:variable>
 	<div class="site-main">
-		<section class="single-page-section">
+		<section id="{sectionId}">
 			<f:if condition="{data.layout} == '1'">
 				<f:then>
 					<div class="container">
-						<f:cObject typoscriptObjectPath="lib.content" />
+						<f:mark.contentArea colPos="0">
+							<f:cObject typoscriptObjectPath="lib.content" />
+						</f:mark.contentArea>
 					</div>
 				</f:then>
 				<f:else>
-					<f:cObject typoscriptObjectPath="lib.content" />
+					<f:mark.contentArea colPos="0">
+						<f:cObject typoscriptObjectPath="lib.content" />
+					</f:mark.contentArea>
 				</f:else>
 			</f:if>
-		</section>	
+		</section>
 	</div>
 </f:section>

@@ -13,16 +13,11 @@
 						argumentsToBeExcludedFromQueryString="{form.renderingOptions.argumentsToBeExcludedFromQueryString}"
 						additionalParams="{form.renderingOptions.additionalParams}"
 				>
-				<div class="row">				
+				<div class="row">
 					<f:render partial="{form.currentPage.templateName}" arguments="{page: form.currentPage}" />
-					<div class="col-lg-12 text-center">
-						<div id="success"></div>
-						<f:render partial="Form/Navigation" arguments="{form: form}" />
-					</div>
 				</div>
-
 				</formvh:form>
 			</formvh:renderRenderable>
 		</div>
-	</div>	
+	</div>
 </html>

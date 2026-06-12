@@ -1,82 +1,69 @@
-<div class="portfolio-section" id="c{data.uid}">
-  <div class="{f:if(condition: '{data.check}==1', then: 'bg-light')} portfolio">
-    <div
-      class="container {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <f:if condition="{data.title}">
-            <h2 class="section-heading text-uppercase">{data.title}</h2>
-          </f:if>
-          <f:if condition="{data.subtitle}">
-            <h3 class="section-subheading text-muted">{data.subtitle}</h3>
-          </f:if>
-        </div>
-      </div>
-      <div class="row">
-        <f:for each="{data.portfolio}" as="item" iteration="i">
-          <div class="col-12 col-sm-6 col-md-4 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{i.cycle}">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+    <div class="ns-portfolio-ce">
+        <div class="portfolio-section" id="c{data.uid}">
+            <div class="{f:if(condition: '{data.check}==1', then: 'bg-light')} portfolio">
+                <div class="container {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading text-uppercase">{data -> f:render.text(field: 'title', optional: true)}</h2>
+                            <h3 class="section-subheading text-muted">{data -> f:render.text(field: 'subtitle', optional: true)}</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <f:for each="{data.portfolio}" as="item" iteration="i">
+                            <div class="col-12 col-sm-6 col-md-4 portfolio-item">
+                                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{i.cycle}">
+                                    <div class="portfolio-hover">
+                                        <div class="portfolio-hover-content">
+                                            <i class="fas fa-plus fa-3x"></i>
+                                        </div>
+                                    </div>
+                                    <f:if condition="{item.image.url}">
+                                        <f:image src="{item.image.url}" class="img-fluid w-100" alt="{item.title}" maxWidth="800" />
+                                    </f:if>
+                                </a>
+                                <div class="portfolio-caption">
+                                    <h4>{item -> f:render.text(field: 'title')}</h4>
+                                    <p class="text-muted">{item -> f:render.text(field: 'subtitle', optional: true)}</p>
+                                </div>
+                            </div>
+                        </f:for>
+                    </div>
                 </div>
-              </div>
-              <f:if condition="{item.image}">
-                <f:variable name="fileUrl" value="{f:uri.typolink(parameter: item.image) -> f:format.raw()}" />
-                <f:if condition="{fileUrl}">
-                  <img src="{fileUrl}" class="img-fluid w-100" alt="portfolio image" />
-                </f:if>
-              </f:if>
 
-            </a>
-            <div class="portfolio-caption">
-              <f:if condition="{item.title}">
-                <h4>{item.title}</h4>
-              </f:if>
-              <f:if condition="{item.subtitle}">
-                <p class="text-muted">{item.subtitle}</p>
-              </f:if>
+                <f:for each="{data.portfolio}" as="item" iteration="i">
+                    <div class="portfolio-modal modal fade" id="portfolioModal{i.cycle}" tabindex="-1" role="dialog"
+                        aria-hidden="true" style="z-index: 9999;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <button type="button" class="close-modal" data-dismiss="modal" aria-label="{f:translate(key: 'close', extensionName: 'ns_theme_agency')}">
+                                    <div class="lr">
+                                        <div class="rl"></div>
+                                    </div>
+                                </button>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8 mx-auto">
+                                            <div class="modal-body">
+                                                <h2 class="text-uppercase">{item -> f:render.text(field: 'title')}</h2>
+                                                <p class="item-intro text-muted">{item -> f:render.text(field: 'subtitle', optional: true)}</p>
+                                                <f:if condition="{item.image.url}">
+                                                    <f:image src="{item.image.url}" class="img-fluid d-block mx-auto" alt="{item.title}" maxWidth="1200" />
+                                                </f:if>
+                                                {item -> f:render.text(field: 'text', optional: true)}
+                                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                                    <i class="fas fa-times"></i>
+                                                    <f:translate key="close" extensionName="ns_theme_agency" />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </f:for>
             </div>
-          </div>
-        </f:for>
-      </div>
+        </div>
     </div>
-
-    <f:for each="{data.portfolio}" as="item" iteration="i">
-      <div class="portfolio-modal modal fade" id="portfolioModal{i.cycle}" tabindex="-1" role="dialog"
-        aria-hidden="true" style="z-index: 9999;">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-              <div class="lr">
-                <div class="rl"></div>
-              </div>
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8 mx-auto">
-                  <div class="modal-body">
-                    <!-- Project Details Go Here -->
-                    <h2 class="text-uppercase">{item.title}</h2>
-                    <p class="item-intro text-muted">{item.subtitle}</p>
-                    <f:if condition="{item.image}">
-                      <f:variable name="fileUrl" value="{f:uri.typolink(parameter: item.image) -> f:format.raw()}" />
-                      <f:if condition="{fileUrl}">
-                        <img src="{fileUrl}" class="img-fluid d-block mx-auto" alt="image" />
-                      </f:if>
-                    </f:if>
-                    <f:format.html>{item.text}</f:format.html>
-                    <button class="btn btn-primary" data-dismiss="modal" type="button">
-                      <i class="fas fa-times"></i>
-                      <f:translate key="close" extensionName="ns_theme_agency" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </f:for>
-  </div>
-</div>
+</html>

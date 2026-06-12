@@ -183,3 +183,60 @@ lib {
 # Ensure keywords use slide (override ns_basetheme "keywords.field = keywords" on empty pages)
 page.meta.keywords >
 page.meta.keywords.data = levelfield:-1, keywords, slide
+
+# Visual Editor: edit-mode preview adjustments
+[request && traverse(request.getQueryParams(), 'editMode') == 1]
+page.headerData {
+    9870 = TEXT
+    9870.value (
+        <style>
+            header.masthead {
+                position: relative;
+                min-height: 280px;
+            }
+            header.masthead::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.45);
+                pointer-events: none;
+            }
+            header.masthead .container,
+            header.masthead .intro-text {
+                position: relative;
+                z-index: 1;
+            }
+            header.masthead .intro-text {
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+            }
+            button ve-editable-text,
+            .btn ve-editable-text {
+                display: inline;
+                pointer-events: auto;
+            }
+            .timeline-image .timeline-story-text ve-editable-rich-text .ck-content:hover,
+            .timeline-image .timeline-story-text ve-editable-rich-text .ck-content:focus {
+                outline: none !important;
+                box-shadow: none !important;
+                backdrop-filter: none !important;
+            }
+            .portfolio-modal.modal {
+                z-index: 100000 !important;
+            }
+            .portfolio-modal .modal-dialog,
+            .portfolio-modal .modal-content,
+            .portfolio-modal .close-modal,
+            .portfolio-modal ve-editable-text,
+            .portfolio-modal ve-editable-rich-text,
+            .portfolio-modal img[data-veedit] {
+                pointer-events: auto;
+            }
+            .portfolio-modal .close-modal {
+                z-index: 100001;
+                border: none;
+                padding: 0;
+            }
+        </style>
+    )
+}
+[end]

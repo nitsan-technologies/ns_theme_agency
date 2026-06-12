@@ -4,6 +4,12 @@ defined('TYPO3') or die();
 
 
 call_user_func(function () {
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+        'tt_content',
+        'subheader',
+        'form_formframework',
+        'after:header',
+    );
 });
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItemGroup(
     'tt_content', // table
