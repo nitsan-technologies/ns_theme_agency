@@ -1,9 +1,10 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-    <button type="submit" id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" form="{formIdentifier}" name="tx_form_formframework[{formIdentifier}][__currentPage]" value="1">
-		<f:variable name="submitLabel">{record -> f:render.text(field: 'subheader', optional: true)}</f:variable>
-		<f:if condition="{submitLabel}">
-			<f:then>{submitLabel}</f:then>
-			<f:else>Submit</f:else>
-		</f:if>
-	</button>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:form.button
+		property="__currentPage"
+		value="{form.pages -> f:count()}"
+		id="sendMessageButton"
+		class="btn btn-primary btn-xl text-uppercase"
+	>
+		{formvh:translateElementProperty(element: form, renderingOptionProperty: 'submitButtonLabel')}
+	</f:form.button>
 </html>

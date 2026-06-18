@@ -95,8 +95,28 @@ section li{
   height: 145px !important;
 }
 
-form button#sendMessageButton {
-  margin-top: 35px;
+.frame-type-form_formframework .form-submit-wrap {
+  position: relative;
+  z-index: 20;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow: visible;
+}
+
+.frame-type-form_formframework .form-submit-wrap ve-editable-text {
+  display: inline;
+  pointer-events: auto;
+  color: inherit;
+}
+
+.frame-type-form_formframework #sendMessageButton {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.frame-type-form_formframework {
+  margin-bottom: 1rem;
 }
 
 section h2.section-heading {
@@ -318,6 +338,12 @@ footer .quicklinks a:hover{
 /* Subpages + Visual Editor: match root one-page section typography */
 .site-main section {
     padding-bottom: 100px;
+}
+
+/* Subpage text content: centered column like Privacy Policy */
+.site-main .frame-type-text .col-lg-8 {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
 }
 
 @media (min-width: 768px) {

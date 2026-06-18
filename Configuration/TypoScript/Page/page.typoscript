@@ -1,6 +1,4 @@
 
-
-
 # Grab all the constant
 plugin {
     ns_theme_agency {
@@ -235,6 +233,73 @@ page.headerData {
                 z-index: 100001;
                 border: none;
                 padding: 0;
+            }
+            /* Subpage content (Thank you, Terms of Use, Privacy Policy, etc.) */
+            .content .site-main ve-content-area,
+            .content .site-main ve-content-element,
+            .content .site-main ve-content-element .frame,
+            .content .site-main ve-content-element .frame-type-text {
+                overflow: visible !important;
+            }
+            .content .site-main ve-content-element {
+                margin-top: 2.5rem;
+            }
+            .content .site-main ve-content-element .frame-type-text .col-lg-8 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            @media (min-width: 992px) {
+                .content .site-main ve-content-element .frame-type-text .col-lg-8 {
+                    flex: 0 0 66.666667%;
+                    max-width: 66.666667%;
+                }
+            }
+            .content .site-main ve-editable-rich-text,
+            .content .site-main ve-editable-rich-text .ck-editor,
+            .content .site-main ve-editable-rich-text .ck-editor__main {
+                overflow: visible !important;
+                position: relative;
+                width: 100%;
+            }
+            .content .site-main .ck-editor__top {
+                position: sticky !important;
+                top: 80px;
+                bottom: auto !important;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                border: 1px solid #d1d1d1;
+                border-radius: 4px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+                margin-bottom: 0.5rem;
+            }
+            .content .site-main .ck-content.ck-content.ck-content {
+                margin: 0 !important;
+                padding: 8px !important;
+            }
+            .content ve-content-element.frame-type-form_formframework,
+            .content ve-content-element .frame-type-form_formframework,
+            .content ve-content-element .frame-type-form_formframework .form-submit-wrap,
+            .content #contact ve-content-element .form-submit-wrap {
+                overflow: visible !important;
+            }
+            .content ve-content-element.frame-type-form_formframework,
+            .content #contact ve-content-element.frame-type-form_formframework {
+                position: relative;
+                padding-bottom: 3rem !important;
+            }
+            .content .form-submit-wrap {
+                min-height: auto;
+                padding-bottom: 1rem;
+            }
+            .content #sendMessageButton,
+            .content #sendMessageButton ve-editable-text,
+            .content .form-submit-wrap ve-editable-text {
+                position: relative;
+                z-index: 20;
+                pointer-events: auto;
+                display: inline-block !important;
+                visibility: visible !important;
             }
         </style>
     )

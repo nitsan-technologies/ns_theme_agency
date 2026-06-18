@@ -14,11 +14,30 @@
 				</f:render>
 				<f:render section="Main" optional="true" />
 				<f:if condition="{data.CType} == 'form_formframework'">
-					<f:variable name="formIdentifier">contactFullForm-{data.uid}</f:variable>
 					<div class="container">
-						<div class="col-lg-12 text-center">
-							<div id="success"></div>
-							<f:render partial="Form/Navigation" arguments="{record: record, formIdentifier: formIdentifier}" />
+						<div class="row">
+							<div class="col-lg-12 text-center form-submit-wrap">
+								<div id="success"></div>
+								<button
+									type="submit"
+									form="contactFullForm-{data.uid}"
+									id="sendMessageButton"
+									class="btn btn-primary btn-xl text-uppercase"
+									name="tx_form_formframework[contactFullForm-{data.uid}][__currentPage]"
+									value="1"
+								>
+									<f:variable name="submitLabel">{record -> f:render.text(field: 'subheader', optional: true)}</f:variable>
+									<f:if condition="{submitLabel} && !{submitLabel.isEmpty}">
+										<f:then>{submitLabel}</f:then>
+										<f:else>
+											<f:if condition="{submitLabel}">
+												<f:then>{submitLabel}</f:then>
+												<f:else>Submit</f:else>
+											</f:if>
+										</f:else>
+									</f:if>
+								</button>
+							</div>
 						</div>
 					</div>
 				</f:if>
@@ -46,11 +65,30 @@
 			</f:render>
 			<f:render section="Main" optional="true" />
 			<f:if condition="{data.CType} == 'form_formframework'">
-				<f:variable name="formIdentifier">contactFullForm-{data.uid}</f:variable>
 				<div class="container">
-					<div class="col-lg-12 text-center">
-						<div id="success"></div>
-						<f:render partial="Form/Navigation" arguments="{record: record, formIdentifier: formIdentifier}" />
+					<div class="row">
+						<div class="col-lg-12 text-center form-submit-wrap">
+							<div id="success"></div>
+							<button
+								type="submit"
+								form="contactFullForm-{data.uid}"
+								id="sendMessageButton"
+								class="btn btn-primary btn-xl text-uppercase"
+								name="tx_form_formframework[contactFullForm-{data.uid}][__currentPage]"
+								value="1"
+							>
+								<f:variable name="submitLabel">{record -> f:render.text(field: 'subheader', optional: true)}</f:variable>
+								<f:if condition="{submitLabel} && !{submitLabel.isEmpty}">
+									<f:then>{submitLabel}</f:then>
+									<f:else>
+										<f:if condition="{submitLabel}">
+											<f:then>{submitLabel}</f:then>
+											<f:else>Submit</f:else>
+										</f:if>
+									</f:else>
+								</f:if>
+							</button>
+						</div>
 					</div>
 				</div>
 			</f:if>
