@@ -2,4 +2,4 @@ name: nitsan/ns-theme-agency
 label: Agency Theme Sets
 pagets: EXT:ns_theme_agency/Configuration/PageTSconfig/setup.typoscript
 dependencies:
-  - nitsan/ns-basetheme
+  - nitsan-ns-basetheme/ns_basetheme

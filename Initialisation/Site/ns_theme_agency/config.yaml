@@ -1,7 +1,7 @@
 base: /
 dependencies:
   - nitsan/ns-theme-agency
-  - nitsan/ns-basetheme
+  - nitsan-ns-basetheme/ns_basetheme
 errorHandling:
   -
     errorCode: 404
