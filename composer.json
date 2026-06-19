@@ -39,5 +39,8 @@
       "typo3/cms": {
           "extension-key": "ns_theme_agency"
       }
+  }, 
+  "suggest": {
+      "friendsoftypo3/visual-editor": "Enable WYSIWYG frontend editing for the T3 Agency theme"
   }
 }
