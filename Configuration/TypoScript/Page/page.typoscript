@@ -174,7 +174,7 @@ lib {
 
         2 = TEXT
         2 {
-            value = {$ns_basetheme.website.settings.copyright}
+            value = {$copyright}
             wrap = |
         }
     }
@@ -183,3 +183,103 @@ lib {
 # Ensure keywords use slide (override ns_basetheme "keywords.field = keywords" on empty pages)
 page.meta.keywords >
 page.meta.keywords.data = levelfield:-1, keywords, slide
+
+# Google Analytics override (site settings enum: valueA=GAv3, valueB=GAv4)
+page.headerData.987 >
+
+[site("settings").get("ns_basetheme.website.settings.googleanalyticsstatus") == true || site("settings").get("ns_basetheme.website.settings.googleanalyticsstatus") == 1 || "{$ns_basetheme.website.settings.googleanalyticsstatus}" == 1]
+page.headerData.987 >
+[global]
+
+[site("settings").get("ns_basetheme.website.settings.googleanalytics") == "" && "{$ns_basetheme.website.settings.googleanalytics}" == ""]
+page.headerData.987 >
+[global]
+
+[(site("settings").get("ns_basetheme.website.settings.googleanalyticstype") == "valueB" || site("settings").get("ns_basetheme.website.settings.googleanalyticstype") == "GAv4") && (site("settings").get("ns_basetheme.website.settings.googleanalytics") != "" || "{$ns_basetheme.website.settings.googleanalytics}" != "")]
+page.headerData.987 >
+page.headerData.987 = COA
+page.headerData.987 {
+    10 = TEXT
+    10.value = <!-- Global site tag (gtag.js) - Google Analytics GAv4 -->
+
+    20 = TEXT
+    20 {
+        value = <script async src="https://www.googletagmanager.com/gtag/js?id=
+        stdWrap {
+            append = TEXT
+            append {
+                data = sitesettings:ns_basetheme.website.settings.googleanalytics
+                if.isFalse {
+                    value = {$ns_basetheme.website.settings.googleanalytics}
+                }
+                wrap = |"></script>
+            }
+        }
+    }
+
+    30 = TEXT
+    30 {
+        value (
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '
+        )
+        stdWrap {
+            append = COA
+            append {
+                10 = TEXT
+                10 {
+                    data = sitesettings:ns_basetheme.website.settings.googleanalytics
+                    if.isFalse {
+                        value = {$ns_basetheme.website.settings.googleanalytics}
+                    }
+                    wrap = |');
+                }
+                20 = TEXT
+                20.value = </script>
+            }
+        }
+    }
+}
+[global]
+
+[(site("settings").get("ns_basetheme.website.settings.googleanalyticstype") == "valueA" || site("settings").get("ns_basetheme.website.settings.googleanalyticstype") == "GAv3") && (site("settings").get("ns_basetheme.website.settings.googleanalytics") != "" || "{$ns_basetheme.website.settings.googleanalytics}" != "")]
+page.headerData.987 >
+page.headerData.987 = COA
+page.headerData.987 {
+    10 = TEXT
+    10.value = <!-- Google Analytics GAv3 -->
+
+    20 = TEXT
+    20 {
+        value (
+            <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', '
+        )
+        stdWrap {
+            append = COA
+            append {
+                10 = TEXT
+                10 {
+                    data = sitesettings:ns_basetheme.website.settings.googleanalytics
+                    if.isFalse {
+                        value = {$ns_basetheme.website.settings.googleanalytics}
+                    }
+                    wrap = |', 'auto');
+                }
+                20 = TEXT
+                20.value (
+                    ga('send', 'pageview');
+                    </script>
+                )
+            }
+        }
+    }
+}
+[global]
