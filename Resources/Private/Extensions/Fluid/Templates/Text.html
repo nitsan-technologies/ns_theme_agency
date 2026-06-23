@@ -2,28 +2,21 @@
 	<f:layout name="Default" />
 	<f:section name="Main">
 		<f:switch expression="{data.layout}">
-			<f:case value="1">
-				<section>
-					<div class="container">
-						<div class="row">
-					        <div class="col-lg-8 mx-auto text-center highed">
-					          <f:format.html>{data.bodytext}</f:format.html>
-					        </div>
-				      	</div>
-					</div>
-				</section>	
-			</f:case>
 			<f:case value="2">
 				<div class="container">
-					<f:format.html>{data.bodytext}</f:format.html>
+					{record -> f:render.text(field: 'bodytext')}
 				</div>
 			</f:case>
 			<f:defaultCase>
 				<section>
 					<div class="container">
-						<f:format.html>{data.bodytext}</f:format.html>
+						<div class="row">
+							<div class="col-lg-8 mx-auto text-center highed">
+								{record -> f:render.text(field: 'bodytext')}
+							</div>
+						</div>
 					</div>
-				</section>		
+				</section>
 			</f:defaultCase>
 		</f:switch>
 	</f:section>

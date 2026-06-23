@@ -20,7 +20,7 @@
                     <f:if condition="{gallery.position.noWrap}">
                         <f:render partial="Header/All" arguments="{_all}" />
                     </f:if>
-                    <f:format.html>{data.bodytext}</f:format.html>
+                    {record -> f:render.text(field: 'bodytext')}
                 </div>
             </f:then>
             <f:else>

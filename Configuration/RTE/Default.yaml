@@ -8,7 +8,9 @@ imports:
 # For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
 editor:
   config:
-    contentsCss: "EXT:ns_basetheme/Resources/Public/css/RTE/bootstrap4-rte.min.css"
+    contentsCss:
+      - "EXT:ns_basetheme/Resources/Public/css/RTE/bootstrap4-rte.min.css"
+      - "EXT:ns_theme_agency/Resources/Public/css/custom.css"
     style:
       definitions:
         - { name: "Background Dark Span", element: "a", attributes: {'class': 'btn btn-outline btn-xl js-scroll-trigger'} }

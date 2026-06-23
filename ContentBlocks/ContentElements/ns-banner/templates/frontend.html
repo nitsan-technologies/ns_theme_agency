@@ -1,23 +1,20 @@
 <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
     <f:variable name="bgImage" value="{f:uri.image(image:'{data.image.0}',maxWidth:'2000')}" />
-    <header id="home" class="masthead content-{data.uid} {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}"
-        style="background-image: url({bgImage})">
-        <div class="container">
-            <div class="intro-text">
-                <f:if condition="{data.title}">
-                    <div class="intro-lead-in">{data.title}</div>
-                </f:if>
-                <f:if condition="{data.subtitle}">
-                    <div class="intro-heading text-uppercase">{data.subtitle}</div>
-                </f:if>
-                <f:if condition="{data.btntext} && {data.scrollid}">
-                    <f:link.typolink parameter="#{data.scrollid}"
-                        class="btn btn-primary btn-xl text-uppercase js-scroll-trigger">
-                        {data.btntext}
-                    </f:link.typolink>
-                </f:if>
+    <div class="ns-banner-ce">
+        <header id="home" class="masthead content-{data.uid} {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}"
+            style="background-image: url({bgImage})">
+            <div class="container">
+                <div class="intro-text">
+                    <div class="intro-lead-in">{data -> f:render.text(field: 'title', optional: true)}</div>
+                    <div class="intro-heading text-uppercase">{data -> f:render.text(field: 'subtitle', optional: true)}</div>
+                    <f:if condition="{data.scrollid}">
+                        <f:link.typolink parameter="#{data.scrollid}"
+                            class="btn btn-primary btn-xl text-uppercase js-scroll-trigger">
+                            {data -> f:render.text(field: 'btntext', optional: true)}
+                        </f:link.typolink>
+                    </f:if>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
+    </div>
 </html>
-

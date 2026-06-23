@@ -3,6 +3,13 @@ mod.wizards.newContentElement.wizardItems.extra {
     show := removeFromList(ns_imageteaser, ns_record, ns_slider)
 }
 TCEFORM.tt_content {
+    subheader {
+        types {
+            form_formframework {
+                label = LLL:EXT:ns_theme_agency/Resources/Private/Language/locallang_db.xlf:tt_content.subheader.form_submit_label
+            }
+        }
+    }
     header_layout {
         altLabels {
             1 = h1

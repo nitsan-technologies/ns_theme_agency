@@ -1,11 +1,21 @@
+lib.contentBlock {
+	dataProcessing {
+		15 = record-transformation
+	}
+}
+
 lib.contentElement {
 	templateRootPaths {
 		10 = EXT:ns_theme_agency/Resources/Private/Extensions/Fluid/Templates/
 	}
 	partialRootPaths {
 		10 = EXT:ns_theme_agency/Resources/Private/Extensions/Fluid/Partials/
+		20 = EXT:ns_theme_agency/Resources/Private/Extensions/Form/Partials/
 	}
 	layoutRootPaths {
 		10 = EXT:ns_theme_agency/Resources/Private/Extensions/Fluid/Layouts/
+	}
+	dataProcessing {
+		1770716912 = record-transformation
 	}
 }
