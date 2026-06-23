@@ -172,7 +172,7 @@ lib {
 
         2 = TEXT
         2 {
-            value = {$ns_basetheme.website.settings.copyright}
+            value = {$copyright}
             wrap = |
         }
     }
