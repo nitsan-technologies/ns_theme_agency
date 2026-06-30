@@ -3,28 +3,24 @@
 /***************************************************************
  * Extension Manager/Repository config file for ext "ns_theme_agency".
  *
- * Auto generated 11-05-2023 13:16
+ * Auto generated 30-06-2026 12:40
  *
  * Manual updates:
  * Only the data in the array - everything else is removed by next
  * writing. "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF['ns_theme_agency'] = array (
+$EM_CONF[$_EXTKEY] = array (
   'title' => 'T3 Agency – Modern TYPO3 Template',
   'description' => 'A professional TYPO3 website template ideal for software companies, startups, and digital agencies. Fully responsive and compatible with TYPO3 v14.',
   'category' => 'templates',
   'version' => '14.1.1',
   'state' => 'stable',
   'uploadfolder' => false,
+  'clearcacheonload' => false,
   'author' => 'Team T3Planet',
   'author_email' => 'info@t3planet.de',
   'author_company' => 'T3Planet',
-  'autoload' => [
-    'psr-4' => [
-      'NITSAN\\NsThemeAgency\\' => 'Classes',
-    ],
-  ],
   'constraints' => 
   array (
     'depends' => 
