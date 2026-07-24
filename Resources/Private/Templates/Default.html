@@ -2,9 +2,7 @@
 
 <f:section name="main">
 	<!-- Render main content colPos=0 -->
-	<f:mark.contentArea colPos="0">
-		<f:cObject typoscriptObjectPath="lib.content"/>
-	</f:mark.contentArea>
+	<f:cObject typoscriptObjectPath="lib.content"/>
 
 	<f:if condition="{settings.onePageMenu}">
 		<f:cObject typoscriptObjectPath="lib.scrolling"/>
