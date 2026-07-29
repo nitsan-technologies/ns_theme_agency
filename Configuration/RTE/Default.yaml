@@ -49,8 +49,6 @@ editor:
       - bidi
       - selectall
       - autolink
-    removePlugins:
-      - null
     removeButtons:
 
 # Allow s and u tag
