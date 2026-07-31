@@ -30,6 +30,7 @@ $EM_CONF['ns_theme_agency'] = array (
     'depends' => 
     array (
       'typo3' => '14.0.0-14.9.99',
+      'impexp' => '14.0.0-14.9.99',
       'ns_basetheme' => '14.0.0-14.9.99',
       'content_blocks' => '2.0.0-2.4.5',
     ),
