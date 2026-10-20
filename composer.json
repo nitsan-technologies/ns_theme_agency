@@ -12,10 +12,10 @@
   "homepage": "https://www.nitsan.in/",
   "authors": [
     {
-        "name": "NITSAN Technologies Pvt Ltd",
-        "email": "info@nitsan.in",
-        "role": "Developer",
-        "homepage": "http://www.nitsan.in/"
+      "name": "NITSAN Technologies Pvt Ltd",
+      "email": "info@nitsan.in",
+      "role": "Developer",
+      "homepage": "http://www.nitsan.in/"
     }
   ],
   "support": {
@@ -24,6 +24,7 @@
   "license": "MIT",
   "require": {
     "typo3/cms-core": "^14.0",
+    "nitsan/ns-license": "^14.5.4",
     "typo3/cms-impexp": "^14.0",
     "nitsan/ns-basetheme": "^14.0",
     "friendsoftypo3/content-blocks": "^2.0.0"
@@ -34,14 +35,14 @@
     }
   },
   "replace": {
-      "typo3-ter/ns-theme-agency": "self.version"
+    "typo3-ter/ns-theme-agency": "self.version"
   },
   "extra": {
-      "typo3/cms": {
-          "extension-key": "ns_theme_agency"
-      }
-  }, 
+    "typo3/cms": {
+      "extension-key": "ns_theme_agency"
+    }
+  },
   "suggest": {
-      "friendsoftypo3/visual-editor": "Enable WYSIWYG frontend editing for the T3 Agency theme"
+    "friendsoftypo3/visual-editor": "Enable WYSIWYG frontend editing for the T3 Agency theme"
   }
 }
